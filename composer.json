@@ -1,0 +1,14 @@
+{
+    "name": "codebot/response-builder",
+    "description": "I have created this package to use it to be able to have standardized structures for http responses for my APIs.",
+    "require-dev": {
+        "phpunit/phpunit": "^7.3"
+    },
+    "authors": [
+        {
+            "name": "Sen",
+            "email": "sen.hakobyan@gmail.com"
+        }
+    ],
+    "require": {}
+}
