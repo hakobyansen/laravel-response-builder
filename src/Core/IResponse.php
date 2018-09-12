@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace RB\Core;
 
 interface IResponse
 {
