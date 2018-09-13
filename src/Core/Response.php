@@ -11,54 +11,54 @@ class Response implements IResponse
     private $_Data;
 
     /**
-     * @return mixed
+     * @return bool
      */
-    public function getStatus()
+    public function getStatus(): bool
     {
         return $this->_Status;
     }
 
     /**
-     * @param mixed $Status
-     * @return Response
+     * @param bool $Status
+     * @return $this
      */
-    public function setStatus($Status)
+    public function setStatus( bool $Status ): self
     {
         $this->_Status = $Status;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getStatusCode()
+    public function getStatusCode(): int
     {
         return $this->_StatusCode;
     }
 
     /**
-     * @param mixed $StatusCode
-     * @return Response
+     * @param int $StatusCode
+     * @return $this
      */
-    public function setStatusCode($StatusCode)
+    public function setStatusCode( int $StatusCode ): self
     {
         $this->_StatusCode = $StatusCode;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return null|string
      */
-    public function getMessage()
+    public function getMessage(): ?string
     {
         return $this->_Message;
     }
 
     /**
      * @param mixed $Message
-     * @return Response
+     * @return $this
      */
-    public function setMessage($Message)
+    public function setMessage( string $Message ): self
     {
         $this->_Message = $Message;
         return $this;
@@ -74,9 +74,9 @@ class Response implements IResponse
 
     /**
      * @param mixed $Errors
-     * @return Response
+     * @return $this
      */
-    public function setErrors($Errors)
+    public function setErrors( $Errors ): self
     {
         $this->_Errors = $Errors;
         return $this;
@@ -92,9 +92,9 @@ class Response implements IResponse
 
     /**
      * @param mixed $Data
-     * @return Response
+     * @return $this
      */
-    public function setData($Data)
+    public function setData( $Data ): self
     {
         $this->_Data = $Data;
 
@@ -104,13 +104,13 @@ class Response implements IResponse
     /**
      * @return array
      */
-    public function getArray()
+    public function getArray(): array
     {
         return [
-            'status' => $this->getStatus(),
+            'status'  => $this->getStatus(),
             'message' => $this->getMessage(),
-            'data' => $this->getData(),
-            'errors' => $this->getErrors()
+            'data'    => $this->getData(),
+            'errors'  => $this->getErrors()
         ];
     }
 
