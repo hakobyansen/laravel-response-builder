@@ -11,45 +11,45 @@ class Response implements IResponse
     private $_Data;
 
     /**
-     * @return mixed
+     * @return bool
      */
-    public function getStatus()
+    public function getStatus(): bool
     {
         return $this->_Status;
     }
 
     /**
-     * @param mixed $Status
-     * @return Response
+     * @param bool $Status
+     * @return $this
      */
-    public function setStatus($Status)
+    public function setStatus( bool $Status ): self
     {
         $this->_Status = $Status;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getStatusCode()
+    public function getStatusCode(): int
     {
         return $this->_StatusCode;
     }
 
     /**
-     * @param mixed $StatusCode
-     * @return Response
+     * @param int $StatusCode
+     * @return $this
      */
-    public function setStatusCode($StatusCode)
+    public function setStatusCode( int $StatusCode ): self
     {
         $this->_StatusCode = $StatusCode;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return null|string
      */
-    public function getMessage()
+    public function getMessage(): ?string
     {
         return $this->_Message;
     }
@@ -58,7 +58,7 @@ class Response implements IResponse
      * @param mixed $Message
      * @return Response
      */
-    public function setMessage($Message)
+    public function setMessage( string $Message )
     {
         $this->_Message = $Message;
         return $this;
@@ -76,7 +76,7 @@ class Response implements IResponse
      * @param mixed $Errors
      * @return Response
      */
-    public function setErrors($Errors)
+    public function setErrors( $Errors )
     {
         $this->_Errors = $Errors;
         return $this;
@@ -94,7 +94,7 @@ class Response implements IResponse
      * @param mixed $Data
      * @return Response
      */
-    public function setData($Data)
+    public function setData( $Data )
     {
         $this->_Data = $Data;
 
