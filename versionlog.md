@@ -10,10 +10,13 @@
 * "src" directory created.
 * Composer autoload added.
 
-## 0.0.4 2018-09-12
+## 0.0.4 2018-09-14
 * getResponse() method added.
 * unit test created for Response class.
 
-## 0.0.5 2018-09-12
+## 0.0.5 2018-09-14
 * Type hints added in Response class.
 * Readme.md added.
+
+## 0.0.6 2018-09-14
+* Updates to composer.json file.
