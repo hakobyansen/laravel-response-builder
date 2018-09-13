@@ -16,3 +16,4 @@
 
 ## 0.0.5 2018-09-12
 * Type hints added in Response class.
+* Readme.md added.
