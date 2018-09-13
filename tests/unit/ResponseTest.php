@@ -74,9 +74,9 @@ class ResponseTest extends TestCase
             ]
         ];
 
-        $response->setStatus( $status );
-        $response->setMessage( $message );
-        $response->setData( $data );
+        $response->setStatus( $status )
+            ->setMessage( $message )
+            ->setData( $data );
 
         $expectedArray = [
             'status'  => $status,
@@ -90,7 +90,9 @@ class ResponseTest extends TestCase
 
     public function testArrayContainsStatus()
     {
-        $response    = new Response();
+        $response = new Response();
+
+        $response->setStatus( true )->setStatusCode( 200 );
 
         $requiredKey = 'status';
         $hasKey      = false;
@@ -107,7 +109,9 @@ class ResponseTest extends TestCase
 
     public function testArrayContainsMessage()
     {
-        $response    = new Response();
+        $response = new Response();
+
+        $response->setStatus( true )->setStatusCode( 200 );
 
         $requiredKey = 'message';
         $hasKey      = false;
@@ -124,7 +128,9 @@ class ResponseTest extends TestCase
 
     public function testArrayContainsData()
     {
-        $response    = new Response();
+        $response = new Response();
+
+        $response->setStatus( true )->setStatusCode( 200 );
 
         $requiredKey = 'data';
         $hasKey      = false;
@@ -141,7 +147,9 @@ class ResponseTest extends TestCase
 
     public function testArrayContainsErrors()
     {
-        $response    = new Response();
+        $response = new Response();
+
+        $response->setStatus( true )->setStatusCode( 200 );
 
         $requiredKey = 'errors';
         $hasKey      = false;
