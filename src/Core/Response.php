@@ -56,9 +56,9 @@ class Response implements IResponse
 
     /**
      * @param mixed $Message
-     * @return Response
+     * @return $this
      */
-    public function setMessage( string $Message )
+    public function setMessage( string $Message ): self
     {
         $this->_Message = $Message;
         return $this;
@@ -74,9 +74,9 @@ class Response implements IResponse
 
     /**
      * @param mixed $Errors
-     * @return Response
+     * @return $this
      */
-    public function setErrors( $Errors )
+    public function setErrors( $Errors ): self
     {
         $this->_Errors = $Errors;
         return $this;
@@ -92,9 +92,9 @@ class Response implements IResponse
 
     /**
      * @param mixed $Data
-     * @return Response
+     * @return $this
      */
-    public function setData( $Data )
+    public function setData( $Data ): self
     {
         $this->_Data = $Data;
 
@@ -104,13 +104,13 @@ class Response implements IResponse
     /**
      * @return array
      */
-    public function getArray()
+    public function getArray(): array
     {
         return [
-            'status' => $this->getStatus(),
+            'status'  => $this->getStatus(),
             'message' => $this->getMessage(),
-            'data' => $this->getData(),
-            'errors' => $this->getErrors()
+            'data'    => $this->getData(),
+            'errors'  => $this->getErrors()
         ];
     }
 
