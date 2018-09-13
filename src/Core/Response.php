@@ -113,4 +113,14 @@ class Response implements IResponse
             'errors' => $this->getErrors()
         ];
     }
+
+    /**
+     * This method uses laravel's response() helper
+     *
+     * @return mixed
+     */
+    public function getResponse()
+    {
+        return response()->json($this->getArray(), $this->getStatusCode());
+    }
 }

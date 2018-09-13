@@ -9,3 +9,7 @@
 ## 0.0.3 2018-09-12
 * "src" directory created.
 * Composer autoload added.
+
+## 0.0.4 2018-09-12
+* getResponse() method added.
+* unit test created for Response class.
