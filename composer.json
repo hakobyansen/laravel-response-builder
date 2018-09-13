@@ -1,6 +1,6 @@
 {
     "name": "codebot/response-builder",
-    "description": "I have created this package to use it to be able to have standardized structures for http responses for my APIs.",
+    "description": "Simple package for Laravel framework to standardize the structure of JSON responses. ",
     "authors": [
         {
             "name": "Sen",
