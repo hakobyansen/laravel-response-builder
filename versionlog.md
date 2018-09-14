@@ -23,3 +23,6 @@
 
 ## 0.0.7 2018-09-14
 * ResponseTest refactoring.
+
+## 0.0.8
+
