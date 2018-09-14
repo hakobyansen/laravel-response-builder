@@ -7,64 +7,62 @@ use RB\Core\Response;
 
 class ResponseTest extends TestCase
 {
+    private $_Response;
+
+    public function setUp()
+    {
+        $this->_Response = new Response();
+
+        $this->_Response->setStatus( true )
+            ->setStatusCode( 200 );
+    }
+
     public function testStatusTrue()
     {
-        $response = new Response();
+        $this->_Response->setStatus(true);
 
-        $response->setStatus(true);
-
-        $this->assertTrue( $response->getStatus() );
+        $this->assertTrue( $this->_Response->getStatus() );
     }
 
     public function testStatusFalse()
     {
-        $response = new Response();
+        $this->_Response->setStatus(false);
 
-        $response->setStatus(false);
-
-        $this->assertFalse( $response->getStatus() );
+        $this->assertFalse( $this->_Response->getStatus() );
     }
 
     public function testStatusCode()
     {
-        $response = new Response();
-
         $actualCode = 404;
 
-        $response->setStatusCode( $actualCode );
+        $this->_Response->setStatusCode( $actualCode );
 
-        $this->assertEquals( $response->getStatusCode(), $actualCode );
+        $this->assertEquals( $this->_Response->getStatusCode(), $actualCode );
     }
 
     public function testMessage()
     {
-        $response = new Response();
-
         $actualMessage = 'Some inspiring message.';
 
-        $response->setMessage( $actualMessage );
+        $this->_Response->setMessage( $actualMessage );
 
-        $this->assertEquals( $response->getMessage(), $actualMessage );
+        $this->assertEquals( $this->_Response->getMessage(), $actualMessage );
     }
 
     public function testErrors()
     {
-        $response = new Response();
-
         $actualErrors = [
             'name' => ['Name field is required.', 'Name must have minimum length 2.'],
             'age'  => ['Age field is required.', 'Age can not be less than 1']
         ];
 
-        $response->setErrors( $actualErrors );
+        $this->_Response->setErrors( $actualErrors );
 
-        $this->assertEquals( $actualErrors, $response->getErrors() );
+        $this->assertEquals( $actualErrors, $this->_Response->getErrors() );
     }
 
     public function testGetArray()
     {
-        $response = new Response();
-
         $status  = true;
         $message = 'Awesome response.';
         $data    = [
@@ -74,7 +72,7 @@ class ResponseTest extends TestCase
             ]
         ];
 
-        $response->setStatus( $status )
+        $this->_Response->setStatus( $status )
             ->setMessage( $message )
             ->setData( $data );
 
@@ -85,21 +83,15 @@ class ResponseTest extends TestCase
             'errors'  => null
         ];
 
-        $this->assertEquals( $expectedArray, $response->getArray() );
+        $this->assertEquals( $expectedArray, $this->_Response->getArray() );
     }
 
     public function testArrayContainsStatus()
     {
-        $response = new Response();
-
-        $response->setStatus( true )->setStatusCode( 200 );
-
         $requiredKey = 'status';
         $hasKey      = false;
 
-        $responseArr = $response->getArray();
-
-        if( array_key_exists( $requiredKey, $responseArr ) )
+        if( array_key_exists( $requiredKey,  $this->_Response->getArray() ) )
         {
             $hasKey = true;
         }
@@ -109,16 +101,10 @@ class ResponseTest extends TestCase
 
     public function testArrayContainsMessage()
     {
-        $response = new Response();
-
-        $response->setStatus( true )->setStatusCode( 200 );
-
         $requiredKey = 'message';
         $hasKey      = false;
 
-        $responseArr = $response->getArray();
-
-        if( array_key_exists( $requiredKey, $responseArr ) )
+        if( array_key_exists( $requiredKey,  $this->_Response->getArray() ) )
         {
             $hasKey = true;
         }
@@ -128,16 +114,10 @@ class ResponseTest extends TestCase
 
     public function testArrayContainsData()
     {
-        $response = new Response();
-
-        $response->setStatus( true )->setStatusCode( 200 );
-
         $requiredKey = 'data';
         $hasKey      = false;
 
-        $responseArr = $response->getArray();
-
-        if( array_key_exists( $requiredKey, $responseArr ) )
+        if( array_key_exists( $requiredKey,  $this->_Response->getArray() ) )
         {
             $hasKey = true;
         }
@@ -147,16 +127,10 @@ class ResponseTest extends TestCase
 
     public function testArrayContainsErrors()
     {
-        $response = new Response();
-
-        $response->setStatus( true )->setStatusCode( 200 );
-
         $requiredKey = 'errors';
         $hasKey      = false;
 
-        $responseArr = $response->getArray();
-
-        if( array_key_exists( $requiredKey, $responseArr ) )
+        if( array_key_exists( $requiredKey,  $this->_Response->getArray() ) )
         {
             $hasKey = true;
         }

@@ -20,3 +20,6 @@
 
 ## 0.0.6 2018-09-14
 * Updates to composer.json file.
+
+## 0.0.7 2018-09-14
+* ResponseTest refactoring.
