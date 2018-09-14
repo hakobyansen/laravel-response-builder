@@ -43,7 +43,7 @@ $response->setStatus( true ); // required
 
 $response->setStatusCode( 200 ); // required
 
-$response->setMessage( 'Some insipiring message.'); // null 
+$response->setMessage( 'Some inspiring message.'); // null 
 will be returned if no message set
 
 $response->setData( $data ); // null will be returned if no data set
@@ -61,7 +61,7 @@ $response = new \RB\Core\Response();
 
 $response->setStatus( true )
     ->setStatusCode( 200 )
-    ->setMessage( 'Some insipiring message.' ); 
+    ->setMessage( 'Some inspiring message.' ); 
     // ...
 ```
 
