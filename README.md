@@ -41,9 +41,9 @@ $response = new \RB\Core\Response();
 
 $response->setStatus( true ); // required
 
-$response->setStatusCode( 200 ); // required
+$response->setStatusCode( \RB\Core\HttpStatusCodes::OK ); // required
 
-$response->setMessage( 'Some inspiring message.'); // null 
+$response->setMessage( 'Some inspiring message.' ); // null 
 will be returned if no message set
 
 $response->setData( $data ); // null will be returned if no data set
@@ -63,6 +63,18 @@ $response->setStatus( true )
     ->setStatusCode( 200 )
     ->setMessage( 'Some inspiring message.' ); 
     // ...
+```
+
+Package contains HttpStatusCodes class with http status codes defined.
+
+```php
+use \RB\Core\HttpStatusCodes;
+
+HttpStatusCodes::OK; // returns status code 200 (integer)
+
+HttpStatusCodes::getMessageByCode( HttpStatusCodes::NOT_FOUND ); // returns string "Not Found"
+
+HttpStatusCode::getCodeWithMessage( HttpStatusCodes::CREATED ); // returns string - code and message, e.g. "201 Created"
 ```
 
 ### Fields
