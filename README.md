@@ -43,8 +43,7 @@ $response->setStatus( true ); // required
 
 $response->setStatusCode( \RB\Core\HttpStatusCodes::OK ); // required
 
-$response->setMessage( 'Some inspiring message.' ); // null 
-will be returned if no message set
+$response->setMessage( 'Some inspiring message.' ); // null will be returned if no message set
 
 $response->setData( $data ); // null will be returned if no data set
 
