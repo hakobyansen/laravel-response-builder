@@ -1,6 +1,6 @@
 <?php echo '<?php' ?>
 
-namespace App\Http\Requests;
+{{ $namespace }}
 
 use RB\Requests\RB_Request;
 

@@ -38,7 +38,12 @@ class MakeRBRequest extends Command
 	{
 		$requestName = $this->argument( 'name' );
 
-		if( $this->createRequest($requestName) )
+		$data = [
+			'request_name'      => $requestName,
+			'request_namespace' => Config::get( 'request_namespace' )
+		];
+
+		if( $this->createRequest( $data ) )
 		{
 			$this->info("Request {$requestName} created successfully!");
 		}
@@ -52,13 +57,11 @@ class MakeRBRequest extends Command
 	}
 
 	/**
-	 * @param string $requestName
+	 * @param array $data
 	 * @return bool
 	 */
-	protected function createRequest( string $requestName ): bool
+	protected function createRequest( array $data ): bool
 	{
-		$data = compact( 'requestName' );
-
 		$dir = Config::get( 'response_builder.request_path' );
 
 		if( !$dir )
@@ -70,7 +73,7 @@ class MakeRBRequest extends Command
 
 		$this->laravel->view->addNamespace( 'blade_generators', __DIR__.'/../blade_generators' );
 
-		$file = $dir . '/' . $requestName. '.php';
+		$file = $dir . '/' . $data[ 'request_name' ]. '.php';
 
 		$output = $this->laravel->view->make( 'blade_generators::rb_request' )->with( $data )->render();
 
