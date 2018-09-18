@@ -31,3 +31,6 @@
 * Introducing RB_Request.
 * Artisan command created for RB_Request generation.
 * Making things configurable.
+
+## 0.1.1
+
