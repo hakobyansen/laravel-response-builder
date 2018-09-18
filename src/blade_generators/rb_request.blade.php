@@ -2,9 +2,7 @@
 
 {{ $namespace }}
 
-use RB\Requests\RB_Request;
-
-class {{ $requestName }} extends RB_Request
+class {{ $request_name }} extends {{ $parent_request_namespace }}
 {
 	/**
 	 * Determine if the user is authorized to make this request.

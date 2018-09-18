@@ -73,9 +73,9 @@ class MakeRBRequest extends Command
 
 		$this->laravel->view->addNamespace( 'blade_generators', __DIR__.'/../blade_generators' );
 
-		$file = $dir . '/' . $data[ 'request_name' ]. '.php';
-
 		$output = $this->laravel->view->make( 'blade_generators::rb_request' )->with( $data )->render();
+
+		$file = $dir . '/' . $data[ 'request_name' ]. '.php';
 
 		if (
 			!file_exists( $file ) &&

@@ -59,7 +59,7 @@ All setters are fluent, so example above could be written like:
 $response = new \RB\Core\Response();
 
 $response->setStatus( true )
-    ->setStatusCode( 200 )
+    ->setStatusCode( \RB\Core\HttpStatusCodes::OK )
     ->setMessage( 'Some inspiring message.' ); 
     // ...
 ```
@@ -71,9 +71,9 @@ use \RB\Core\HttpStatusCodes;
 
 HttpStatusCodes::OK; // returns status code 200 (integer)
 
-HttpStatusCodes::getMessageByCode( HttpStatusCodes::NOT_FOUND ); // returns string "Not Found"
+HttpStatusCodes::getMessageByCode( \RB\Core\HttpStatusCodes::OK::NOT_FOUND ); // returns string "Not Found"
 
-HttpStatusCode::getCodeWithMessage( HttpStatusCodes::CREATED ); // returns string - code and message, e.g. "201 Created"
+HttpStatusCodes::getCodeWithMessage( \RB\Core\HttpStatusCodes::OK::CREATED ); // returns string - code and message, e.g. "201 Created"
 ```
 
 ### Fields
