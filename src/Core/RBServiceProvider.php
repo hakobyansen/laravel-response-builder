@@ -11,7 +11,7 @@ class RBServiceProvider extends ServiceProvider
 	{
 		// Publish configuration files
 		$this->publishes([
-			__DIR__.'/../Config/config.php' => app()->basePath() . '/config/response_builder.php',
+			__DIR__.'/../Configs/config.php' => app()->basePath() . '/config/response_builder.php',
 		], 'response-builder');
 
 		// Register commands
