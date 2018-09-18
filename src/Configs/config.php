@@ -25,6 +25,12 @@ return [
 	 * have different than App\Http\Requests namespace.
 	 * E.g. you changed request_path and you want namespace to be changed too.
 	 */
-	'request_namespace' => 'App\Http\Requests'
+	'request_namespace' => 'App\Http\Requests',
 
+	/**
+	 * Default messages
+	 */
+	'messages' => [
+		'failed_validation' => 'The given data was invalid.',
+	]
 ];
