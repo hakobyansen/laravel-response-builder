@@ -1,4 +1,4 @@
-<?php echo '<?php' ?>
+<?= '<?php' ?>
 
 {{ $namespace }}
 

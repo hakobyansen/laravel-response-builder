@@ -3,6 +3,11 @@
 namespace RB\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use RB\Core\HttpStatusCodes;
+use RB\Core\Response;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Support\Facades\Config;
+
 
 class RB_Request extends FormRequest
 {
@@ -24,5 +29,21 @@ class RB_Request extends FormRequest
 	public function rules()
 	{
 		return [];
+	}
+
+
+	/**
+	 * @param Validator $Validator
+	 */
+	public function failedValidation( Validator $Validator )
+	{
+		$Response = new Response();
+
+		$Response->setStatus( false );
+		$Response->setStatusCode( HttpStatusCodes::UNPROCESSABLE_ENTITY );
+		$Response->setMessage( Config::get( 'response_builder.messages.failed_validation' ) );
+		$Response->setErrors( $Validator->getMessageBag()->toArray() );
+
+		throw new HttpResponseException( $Response->getResponse() );
 	}
 }

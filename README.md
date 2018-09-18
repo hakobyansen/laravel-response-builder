@@ -78,8 +78,8 @@ HttpStatusCodes::getCodeWithMessage( \RB\Core\HttpStatusCodes::OK::CREATED ); //
 
 ### Fields
 
-`status` - boolean ( not nullable)  
-`status code` - integer ( not nullable )  
-`message` - string ( can be null )  
-`data` - mixed ( can be null )  
-`errors` - mixed (can be null )  
+`status` - boolean ( Not Nullable )  
+`status code` - integer ( Not Nullable )  
+`message` - string ( Nullable )  
+`data` - mixed ( Nullable )  
+`errors` - mixed ( Nullable )  
