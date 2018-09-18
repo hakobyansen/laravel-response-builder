@@ -1,6 +1,6 @@
 <?= '<?php' ?>
-
-{{ $namespace }}
+<?= "\n\n" ?>
+namespace {{ $request_namespace }};
 
 class {{ $request_name }} extends {{ $parent_request_namespace }}
 {
