@@ -22,9 +22,6 @@ class RBServiceProvider extends ServiceProvider
 
 	public function register()
 	{
-		$this->app->bind(
-			'\RB\Core\Contracts\IResponse',
-			'\RB\Core\Response'
-		);
+		$this->mergeConfigFrom(__DIR__.'/../Configs/config.php', 'response_builder');
 	}
 }
