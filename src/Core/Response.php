@@ -2,6 +2,8 @@
 
 namespace RB\Core;
 
+use RB\Core\Contracts\IResponse;
+
 class Response implements IResponse
 {
 	private $_Status;

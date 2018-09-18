@@ -19,4 +19,12 @@ class RBServiceProvider extends ServiceProvider
 			MakeRBRequest::class
 		]);
 	}
+
+	public function register()
+	{
+		$this->app->bind(
+			'\RB\Core\Contracts\IResponse',
+			'\RB\Core\Response'
+		);
+	}
 }
