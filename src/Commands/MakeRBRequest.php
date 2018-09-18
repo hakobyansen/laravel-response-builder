@@ -39,8 +39,9 @@ class MakeRBRequest extends Command
 		$requestName = $this->argument( 'name' );
 
 		$data = [
-			'request_name'      => $requestName,
-			'request_namespace' => Config::get( 'request_namespace' )
+			'request_name'             => $requestName,
+			'request_namespace'        => Config::get( 'response_builder.request_namespace' ),
+			'parent_request_namespace' => Config::get( 'response_builder.parent_request_namespace' ),
 		];
 
 		if( $this->createRequest( $data ) )
