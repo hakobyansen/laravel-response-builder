@@ -35,3 +35,4 @@
 ## 0.1.1 2018-09-18
 * Vendor publishing issue fixed
 
+## 0.1.2
