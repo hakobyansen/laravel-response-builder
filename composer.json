@@ -20,5 +20,12 @@
         "psr-0": {
             "RB\\": "src/"
         }
+    },
+    "extra" : {
+        "laravel": {
+            "providers": [
+                "RB\\Core\\RBServiceProvider"
+            ]
+        }
     }
 }
