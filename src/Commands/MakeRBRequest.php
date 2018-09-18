@@ -70,9 +70,9 @@ class MakeRBRequest extends Command
 
 		$this->laravel->view->addNamespace( 'blade_generators', __DIR__.'/../blade_generators' );
 
-		$output = $this->laravel->view->make( 'blade_generators::rb_request' )->with( $data )->render();
+		$file = $dir . '/' . $requestName. '.php';
 
-		$file = $dir . $requestName. '.php';
+		$output = $this->laravel->view->make( 'blade_generators::rb_request' )->with( $data )->render();
 
 		if (
 			!file_exists( $file ) &&
@@ -93,14 +93,9 @@ class MakeRBRequest extends Command
 	 */
 	protected function createDirIfNotExist( string $dir ): void
 	{
-		$dirArr = explode(  '/', $dir );
-
-		foreach ( $dirArr as $dir )
+		if( !is_dir( $dir ) )
 		{
-			if( !is_dir( $dir ) )
-			{
-				mkdir( $dir );
-			}
+			mkdir( $dir, 0755, true );
 		}
 	}
 }
