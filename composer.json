@@ -1,5 +1,5 @@
 {
-    "name": "codebot/response-builder",
+    "name": "codebot/laravel-response-builder",
     "description": "Simple package for Laravel framework to standardize the structure of JSON responses. ",
     "authors": [
         {
@@ -19,6 +19,13 @@
         },
         "psr-0": {
             "RB\\": "src/"
+        }
+    },
+    "extra" : {
+        "laravel": {
+            "providers": [
+                "RB\\Core\\RBServiceProvider"
+            ]
         }
     }
 }

@@ -43,8 +43,7 @@ $response->setStatus( true ); // required
 
 $response->setStatusCode( \RB\Core\HttpStatusCodes::OK ); // required
 
-$response->setMessage( 'Some inspiring message.' ); // null 
-will be returned if no message set
+$response->setMessage( 'Some inspiring message.' ); // null will be returned if no message set
 
 $response->setData( $data ); // null will be returned if no data set
 
@@ -60,7 +59,7 @@ All setters are fluent, so example above could be written like:
 $response = new \RB\Core\Response();
 
 $response->setStatus( true )
-    ->setStatusCode( 200 )
+    ->setStatusCode( \RB\Core\HttpStatusCodes::OK )
     ->setMessage( 'Some inspiring message.' ); 
     // ...
 ```
@@ -72,15 +71,15 @@ use \RB\Core\HttpStatusCodes;
 
 HttpStatusCodes::OK; // returns status code 200 (integer)
 
-HttpStatusCodes::getMessageByCode( HttpStatusCodes::NOT_FOUND ); // returns string "Not Found"
+HttpStatusCodes::getMessageByCode( \RB\Core\HttpStatusCodes::OK::NOT_FOUND ); // returns string "Not Found"
 
-HttpStatusCode::getCodeWithMessage( HttpStatusCodes::CREATED ); // returns string - code and message, e.g. "201 Created"
+HttpStatusCodes::getCodeWithMessage( \RB\Core\HttpStatusCodes::OK::CREATED ); // returns string - code and message, e.g. "201 Created"
 ```
 
 ### Fields
 
-`status` - boolean ( not nullable)  
-`status code` - integer ( not nullable )  
-`message` - string ( can be null )  
-`data` - mixed ( can be null )  
-`errors` - mixed (can be null )  
+`status` - boolean ( Not Nullable )  
+`status code` - integer ( Not Nullable )  
+`message` - string ( Nullable )  
+`data` - mixed ( Nullable )  
+`errors` - mixed ( Nullable )  

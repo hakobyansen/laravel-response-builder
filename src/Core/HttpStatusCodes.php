@@ -39,6 +39,7 @@ class HttpStatusCodes
 	const UNSUPPORTED_MEDIA_TYPE = 415;
 	const RANGE_NOT_SATISFIABLE = 416; // "Requested Range Not Satisfiable"
 	const EXPECTATION_FAILED = 417;
+	const UNPROCESSABLE_ENTITY = 422;
 	const INTERNAL_SERVER_ERROR = 500;
 	const NOT_IMPLEMENTED = 501;
 	const BAD_GATEWAY = 502;
@@ -87,6 +88,7 @@ class HttpStatusCodes
 		self::UNSUPPORTED_MEDIA_TYPE => 'Unsupported Media Type',
 		self::RANGE_NOT_SATISFIABLE => 'Range Not Satisfiable',
 		self::EXPECTATION_FAILED => 'Expectation Failed',
+		self::UNPROCESSABLE_ENTITY => 'Unprocessable Entity',
 		self::INTERNAL_SERVER_ERROR => 'Internal Server Error',
 		self::NOT_IMPLEMENTED => 'Not Implemented',
 		self::BAD_GATEWAY => 'Bad Gateway',
