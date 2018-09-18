@@ -121,6 +121,6 @@ class Response implements IResponse
 	 */
 	public function getResponse()
 	{
-		return response()->json($this->getArray(), $this->getStatusCode());
+		return response()->json( $this->getArray(), $this->getStatusCode() );
 	}
 }

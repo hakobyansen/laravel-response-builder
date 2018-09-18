@@ -27,5 +27,6 @@
 ## 0.0.8 2018-09-15
 * HttpStatusCodes class created.
 
-## 0.0.9
-* Readme.md updated
+## 0.1.0
+* Introducing RB_Request.
+* Artisan command created for RB_Request generation.
