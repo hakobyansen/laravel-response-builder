@@ -3,7 +3,7 @@
 return [
 
 	/**
-	 * Generated request classes will be store in specified "request_path" directory.
+	 * Generated request classes will be stored in specified "request_path" directory.
 	 */
 
 	'request_path' => base_path( 'app/Http/Requests/RB' ),
@@ -21,7 +21,7 @@ return [
 	'is_authorize' => "true",
 
 	/**
-	 * Default messages
+	 * Default messages.
 	 */
 
 	'messages' => [
