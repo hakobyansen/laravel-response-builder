@@ -2,9 +2,9 @@
 <?= "\n\n" ?>
 namespace {{ $request_namespace }};
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\RB_Request;
 
-class {{ $request_name }} extends FormRequest
+class {{ $request_name }} extends RB_Request
 {
 	/**
 	 * Determine if the user is authorized to make this request.
