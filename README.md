@@ -37,7 +37,7 @@ or
 
 **For Laravel 5.4 and versions below add `\RB\Core\RBServiceProvider::class` to providers in config/app.php file.**
 
-You will need to run `php artisan vendor:publish` to publish the **response_builder.php** config file by choosing **laravel-response-builder** tag.
+Next run `php artisan vendor:publish --tag=laravel-response-builder` command in your console.
 
 ### Usage  
 ```php
