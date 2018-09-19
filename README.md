@@ -1,7 +1,7 @@
-This is a simple package for Laravel framework to standardize the structure of JSON responses.
-Package can work with any version of Laravel where `response()` helper is available.  
+## About
+Package `codebot/laravel-response-builder` is a simple package for Laravel framework to standardize the structure of JSON responses.
 
-You will find this package helpful if you need your responses too look like:
+You will find this package helpful if you need your responses too look like this:
 
 ```json
 {
@@ -32,8 +32,20 @@ or
 }
 ```
 
-### Installation  
-`composer require codebot/response-builder`
+## Installation  
+`composer require codebot/response-builder:0.1.*`
+
+**For Laravel 5.4 and versions below add `\RB\Core\RBServiceProvider::class` to providers in config/app.php file.**
+
+Next run `php artisan vendor:publish --tag=laravel-response-builder` command in your console.
+
+## Requests
+
+Once you published vendor, you should see `App\Http\Requests\RB\RB_Request class`. This will be base class for
+laravel-response-builder's requests.  
+To generate a request that extends RB_Request, do:
+  
+`php artisan make:rb_request YourNewRequest` 
 
 ### Usage  
 ```php
@@ -76,7 +88,21 @@ HttpStatusCodes::getMessageByCode( \RB\Core\HttpStatusCodes::OK::NOT_FOUND ); //
 HttpStatusCodes::getCodeWithMessage( \RB\Core\HttpStatusCodes::OK::CREATED ); // returns string - code and message, e.g. "201 Created"
 ```
 
-### Fields
+## Configuration
+
+Once you have vendor published, you should see `config/response_builder.php` file.
+
+**request_path** - Generated request classes will be store in specified directory.  
+
+**request_namespace** - Namespace for generated request class.  
+
+**is_authorize** - Default value of Request's authorize() method.
+
+**messages** - Contains messages for Response's "message" field.  
+
+*messages.failed_validation* - Default message for response that failed the valiadtion.
+
+## Fields
 
 `status` - boolean ( Not Nullable )  
 `status code` - integer ( Not Nullable )  

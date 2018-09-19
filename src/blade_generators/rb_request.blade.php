@@ -2,7 +2,9 @@
 <?= "\n\n" ?>
 namespace {{ $request_namespace }};
 
-class {{ $request_name }} extends {{ $parent_request_namespace }}
+use {{ $request_namespace }}\RB_Request;
+
+class {{ $request_name }} extends RB_Request
 {
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -11,7 +13,7 @@ class {{ $request_name }} extends {{ $parent_request_namespace }}
 	 */
 	public function authorize()
 	{
-		return false;
+		return {{ $is_authorize }};
 	}
 
 	/**

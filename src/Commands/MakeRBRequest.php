@@ -39,9 +39,9 @@ class MakeRBRequest extends Command
 		$requestName = $this->argument( 'name' );
 
 		$data = [
-			'request_name'             => $requestName,
-			'request_namespace'        => Config::get( 'response_builder.request_namespace' ),
-			'parent_request_namespace' => Config::get( 'response_builder.parent_request_namespace' ),
+			'request_name'      => $requestName,
+			'request_namespace' => Config::get( 'response_builder.request_namespace' ),
+			'is_authorize'      => Config::get( 'response_builder.is_authorize' )
 		];
 
 		if( $this->createRequest( $data ) )
@@ -51,7 +51,7 @@ class MakeRBRequest extends Command
 		else
 		{
 			$this->error(
-				"Couldn't create request $requestName. 
+				"Couldn't create request $requestName. \n
 				Please check the write permissions and make sure that you don't have $requestName.php file existing already."
 			);
 		}
@@ -67,7 +67,7 @@ class MakeRBRequest extends Command
 
 		if( !$dir )
 		{
-			exit( 'Invalid path for request file. Please check configuration and make sure that you have "request_path" set correctly.' );
+			exit( "Invalid path for request file. Please check configuration and make sure that you have \"request_path\" set correctly. \n" );
 		}
 
 		$this->createDirIfNotExist( $dir );

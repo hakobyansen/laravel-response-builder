@@ -1,13 +1,13 @@
 <?php
 
-namespace RB\Requests;
+namespace App\Http\Requests\RB;
 
 use Illuminate\Foundation\Http\FormRequest;
 use RB\Core\HttpStatusCodes;
 use RB\Core\Response;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Config;
-
+use Illuminate\Contracts\Validation\Validator;
 
 class RB_Request extends FormRequest
 {

@@ -37,3 +37,9 @@
 
 ## 0.1.2 2018-09-18
 * Issues fixed related to rb_request blade generator.
+
+## 0.1.3
+* Refactoring.
+* Documentation updated.
+
+
