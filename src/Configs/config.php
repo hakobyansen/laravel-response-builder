@@ -6,13 +6,13 @@ return [
 	 * Generated request classes will be store in specified "request_path" directory.
 	 */
 
-	'request_path' => base_path( 'app/Http/Requests' ),
+	'request_path' => base_path( 'app/Http/Requests/RB' ),
 
 	/**
 	 * Namespace for generated request class.
 	 */
 
-	'request_namespace' => 'App\Http\Requests',
+	'request_namespace' => 'App\Http\Requests\RB',
 
 	/**
 	 * Default value of Request's authorize() method.
