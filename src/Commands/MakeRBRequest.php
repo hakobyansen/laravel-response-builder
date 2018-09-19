@@ -51,7 +51,7 @@ class MakeRBRequest extends Command
 		else
 		{
 			$this->error(
-				"Couldn't create request $requestName. 
+				"Couldn't create request $requestName. \n
 				Please check the write permissions and make sure that you don't have $requestName.php file existing already."
 			);
 		}
@@ -67,7 +67,7 @@ class MakeRBRequest extends Command
 
 		if( !$dir )
 		{
-			exit( 'Invalid path for request file. Please check configuration and make sure that you have "request_path" set correctly.' );
+			exit( "Invalid path for request file. Please check configuration and make sure that you have \"request_path\" set correctly. \n" );
 		}
 
 		$this->createDirIfNotExist( $dir );
