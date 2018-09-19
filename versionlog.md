@@ -39,5 +39,7 @@
 * Issues fixed related to rb_request blade generator.
 
 ## 0.1.3
+* Refactoring.
+* Documentation updated.
 
 

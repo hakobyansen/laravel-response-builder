@@ -1,7 +1,7 @@
-This is a simple package for Laravel framework to standardize the structure of JSON responses.
-Package can work with any version of Laravel where `response()` helper is available.  
+## About
+Package `codebot/laravel-response-builder` is a simple package for Laravel framework to standardize the structure of JSON responses.
 
-You will find this package helpful if you need your responses too look like:
+You will find this package helpful if you need your responses too look like this:
 
 ```json
 {
@@ -32,8 +32,12 @@ or
 }
 ```
 
-### Installation  
-`composer require codebot/response-builder`
+## Installation  
+`composer require codebot/response-builder:0.1.*`
+
+**For Laravel 5.4 and versions below add `\RB\Core\RBServiceProvider::class` to providers in config/app.php file.**
+
+You will need to run `php artisan vendor:publish` to publish the **response_builder.php** config file by choosing **laravel-response-builder** tag.
 
 ### Usage  
 ```php
