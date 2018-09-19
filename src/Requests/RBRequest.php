@@ -7,8 +7,9 @@ use RB\Core\HttpStatusCodes;
 use RB\Core\Response;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Contracts\Validation\Validator;
 
-class RB_Request extends FormRequest
+class RBRequest extends FormRequest
 {
 	/**
 	 * Determine if the user is authorized to make this request.
