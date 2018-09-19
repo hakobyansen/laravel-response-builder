@@ -12,7 +12,7 @@ class RBServiceProvider extends ServiceProvider
 		// Publish configuration files
 		$this->publishes([
 			__DIR__.'/../Configs/config.php' => app()->basePath() . '/config/response_builder.php',
-		], 'response-builder');
+		], 'laravel-response-builder');
 
 		// Register commands
 		$this->commands([
