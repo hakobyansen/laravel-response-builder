@@ -9,7 +9,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Contracts\Validation\Validator;
 
-class RBRequest extends FormRequest
+class RB_Request extends FormRequest
 {
 	/**
 	 * Determine if the user is authorized to make this request.
