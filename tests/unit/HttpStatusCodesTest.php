@@ -3,28 +3,28 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use RB\Core\HttpStatusCodes;
+use RB\Core\HttpStatusCode;
 
 class HttpStatusCodesTest extends TestCase
 {
 	public function testGetCodeWithMessage()
 	{
-		$okCode = HttpStatusCodes::OK;
-		$okMessage = HttpStatusCodes::getMessageByCode($okCode);
+		$okCode = HttpStatusCode::OK;
+		$okMessage = HttpStatusCode::getMessageByCode($okCode);
 
 		$this->assertEquals(
-			HttpStatusCodes::getCodeWithMessage($okCode),
+			HttpStatusCode::getCodeWithMessage($okCode),
 			"{$okCode} {$okMessage}"
 		);
 	}
 
 	public function testGetMessageByCode()
 	{
-		$okCode = HttpStatusCodes::OK;
-		$okMessage = HttpStatusCodes::$statusCodeMap[$okCode];
+		$okCode = HttpStatusCode::OK;
+		$okMessage = HttpStatusCode::$statusCodeMap[$okCode];
 
 		$this->assertEquals(
-			HttpStatusCodes::getMessageByCode($okCode),
+			HttpStatusCode::getMessageByCode($okCode),
 			$okMessage
 		);
 	}
