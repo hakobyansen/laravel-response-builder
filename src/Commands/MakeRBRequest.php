@@ -12,7 +12,7 @@ class MakeRBRequest extends Command
 	*
 	* @var string
 	*/
-	protected $signature = 'make:rb_request {name}';
+	protected $signature = 'make:rbrequest {name}';
 
 	/**
 	 * The console command description.
