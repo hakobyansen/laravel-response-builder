@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use Illuminate\Support\Facades\Validator;
 use Orchestra\Testbench\TestCase;
 use RB\Core\RBValidator;
 
@@ -33,6 +34,8 @@ class RBValidatorTest extends TestCase
             'city' => 'required'
         ];
 
-        $this->assertTrue(  RBValidator::validate( $data, $rules ) );
+        $validator = Validator::make( $data, $rules );
+
+        $this->assertTrue(  RBValidator::validate( $validator ) );
     }
 }
