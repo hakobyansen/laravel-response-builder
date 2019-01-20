@@ -2,7 +2,7 @@
 
 namespace RB\Core;
 
-class HttpStatusCodes
+class HttpStatusCode
 {
 	const CONTINUE = 100;
 	const SWITCHING_PROTOCOL = 101;

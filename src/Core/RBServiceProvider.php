@@ -9,10 +9,10 @@ class RBServiceProvider extends ServiceProvider
 {
 	public function boot()
 	{
-		// Publish configuration and RB_Request files
+		// Publish configuration and RBRequest files
 		$this->publishes([
 			__DIR__.'/../Configs/config.php' => app()->basePath() . '/config/response_builder.php',
-			__DIR__ . '/../Requests/RB_Request.php' => app()->basePath() . '/app/Http/Requests/RB/RB_Request.php',
+			__DIR__ . '/../Requests/RBRequest.php' => app()->basePath() . '/app/Http/Requests/RB/RBRequest.php',
 		], 'laravel-response-builder');
 
 		// Register commands

@@ -12,14 +12,14 @@ class MakeRBRequest extends Command
 	*
 	* @var string
 	*/
-	protected $signature = 'make:rb_request {name}';
+	protected $signature = 'make:rbrequest {name}';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Make request class that extends from RB_Request.';
+	protected $description = 'Make request class that extends from RBRequest.';
 
 	/**
 	 * Create a new command instance.

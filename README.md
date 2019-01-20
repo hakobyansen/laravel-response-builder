@@ -33,7 +33,7 @@ or
 ```
 
 ## Installation  
-`composer require codebot/response-builder:0.1.*`
+`composer require codebot/response-builder:0.2.*`
 
 **For Laravel 5.4 and versions below add `\RB\Core\RBServiceProvider::class` to providers in config/app.php file.**
 
@@ -41,19 +41,28 @@ Next run `php artisan vendor:publish --tag=laravel-response-builder` command in 
 
 ## Requests
 
-Once you published vendor, you should see `App\Http\Requests\RB\RB_Request class`. This will be base class for
+Once you published vendor, you should see `App\Http\Requests\RB\RBRequest class`. This will be base class for
 laravel-response-builder's requests.  
-To generate a request that extends RB_Request, do:
+To generate a request that extends RBRequest, do:
   
-`php artisan make:rb_request YourNewRequest` 
+`php artisan make:rbrequest YourNewRequest` 
+
+If you are using Laravel's Validator class, you can use `RB\Core\RBValidator` to standardize the structure of failed response. 
+
+```php
+$validator = new Validator( $data, $rules ); // assuming you have a $validator instance
+
+\RB\Core\RBValidator::validate( $Validator ); // throws HttpResponseException or returns boolean true
+ 
+```
+
+RBValidator::validate() method checks if validation fails and throws an Illuminate\Http\Exceptions\HttpResponseException with the standardized json response structure.
 
 ### Usage  
 ```php
 $response = new \RB\Core\Response();
 
-$response->setStatus( true ); // required
-
-$response->setStatusCode( \RB\Core\HttpStatusCodes::OK ); // required
+$response->setStatusCode( \RB\Core\HttpStatusCode::OK ); // required. If code is 2XX then Response::status field will be "true", otherwise "false"
 
 $response->setMessage( 'Some inspiring message.' ); // null will be returned if no message set
 
@@ -70,22 +79,21 @@ All setters are fluent, so example above could be written like:
 ```php
 $response = new \RB\Core\Response();
 
-$response->setStatus( true )
-    ->setStatusCode( \RB\Core\HttpStatusCodes::OK )
+$response->setStatusCode( \RB\Core\HttpStatusCode::OK )
     ->setMessage( 'Some inspiring message.' ); 
     // ...
 ```
 
-Package contains HttpStatusCodes class with http status codes defined.
+Package contains HttpStatusCode class with http status codes defined.
 
 ```php
-use \RB\Core\HttpStatusCodes;
+use \RB\Core\HttpStatusCode;
 
-HttpStatusCodes::OK; // returns status code 200 (integer)
+HttpStatusCode::OK; // returns status code 200 (integer)
 
-HttpStatusCodes::getMessageByCode( \RB\Core\HttpStatusCodes::OK::NOT_FOUND ); // returns string "Not Found"
+HttpStatusCode::getMessageByCode( \RB\Core\HttpStatusCode::OK::NOT_FOUND ); // returns string "Not Found"
 
-HttpStatusCodes::getCodeWithMessage( \RB\Core\HttpStatusCodes::OK::CREATED ); // returns string - code and message, e.g. "201 Created"
+HttpStatusCode::getCodeWithMessage( \RB\Core\HttpStatusCode::OK::CREATED ); // returns string - code and message, e.g. "201 Created"
 ```
 
 ## Configuration
@@ -100,7 +108,7 @@ Once you have vendor published, you should see `config/response_builder.php` fil
 
 **messages** - Contains messages for Response's "message" field.  
 
-*messages.failed_validation* - Default message for response that failed the valiadtion.
+*messages.failed_validation* - Default message for response that failed the validation.
 
 ## Fields
 

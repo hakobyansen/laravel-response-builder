@@ -24,7 +24,7 @@ class Response implements IResponse
 	 * @param bool $Status
 	 * @return $this
 	 */
-	public function setStatus(bool $Status): self
+	public function setStatus(bool $Status): Response
 	{
 		$this->_Status = $Status;
 		return $this;
@@ -42,9 +42,21 @@ class Response implements IResponse
 	 * @param int $StatusCode
 	 * @return $this
 	 */
-	public function setStatusCode(int $StatusCode): self
+	public function setStatusCode(int $StatusCode): Response
 	{
 		$this->_StatusCode = $StatusCode;
+		
+		// If status code is 2XX then status should be true
+		
+        if( (string)$StatusCode{0} === '2' )
+        {
+            $this->setStatus( true );
+        }
+        else
+        {
+            $this->setStatus( false );
+        }
+        
 		return $this;
 	}
 
@@ -60,7 +72,7 @@ class Response implements IResponse
 	 * @param mixed $Message
 	 * @return $this
 	 */
-	public function setMessage(string $Message): self
+	public function setMessage(string $Message): Response
 	{
 		$this->_Message = $Message;
 		return $this;
@@ -78,7 +90,7 @@ class Response implements IResponse
 	 * @param mixed $Errors
 	 * @return $this
 	 */
-	public function setErrors($Errors): self
+	public function setErrors($Errors): Response
 	{
 		$this->_Errors = $Errors;
 		return $this;
@@ -96,7 +108,7 @@ class Response implements IResponse
 	 * @param mixed $Data
 	 * @return $this
 	 */
-	public function setData($Data): self
+	public function setData($Data): Response
 	{
 		$this->_Data = $Data;
 

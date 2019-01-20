@@ -2,9 +2,9 @@
 <?= "\n\n" ?>
 namespace {{ $request_namespace }};
 
-use {{ $request_namespace }}\RB_Request;
+use {{ $request_namespace }}\RBRequest;
 
-class {{ $request_name }} extends RB_Request
+class {{ $request_name }} extends RBRequest
 {
 	/**
 	 * Determine if the user is authorized to make this request.
