@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use PHPUnit\Framework\TestCase;
 use RB\Core\HttpStatusCode;
 
-class HttpStatusCodesTest extends TestCase
+class HttpStatusCodeTest extends TestCase
 {
 	public function testGetCodeWithMessage()
 	{
