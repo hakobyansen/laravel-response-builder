@@ -3,14 +3,13 @@
 namespace App\Http\Requests\RB;
 
 use Illuminate\Foundation\Http\FormRequest;
-use RB\Core\HttpStatusCode;
-use RB\Core\Response;
-use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Contracts\Validation\Validator;
+use RB\Core\ValidatorTrait;
 
 class RBRequest extends FormRequest
 {
+    use ValidatorTrait;
+
 	/**
 	 * Determine if the user is authorized to make this request.
 	 *
@@ -31,19 +30,11 @@ class RBRequest extends FormRequest
 		return [];
 	}
 
-
 	/**
 	 * @param Validator $Validator
 	 */
 	public function failedValidation( Validator $Validator )
 	{
-		$Response = new Response();
-
-		$Response->setStatus( false );
-		$Response->setStatusCode( HttpStatusCode::UNPROCESSABLE_ENTITY );
-		$Response->setMessage( Config::get( 'response_builder.messages.failed_validation' ) );
-		$Response->setErrors( $Validator->getMessageBag()->toArray() );
-
-		throw new HttpResponseException( $Response->getResponse() );
+		self::throwResponseException( $Validator );
 	}
 }

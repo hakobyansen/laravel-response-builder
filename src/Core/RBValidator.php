@@ -1,19 +1,28 @@
 <?php
+
 namespace RB\Core;
 
-use Validator;
+use Illuminate\Support\Facades\Validator;
 
 class RBValidator
 {
-    use ValidationTrait;
-    
-    public static function validate( $data, $rules, $messages )
+    use ValidatorTrait;
+
+    /**
+     * @param $data
+     * @param $rules
+     * @param $messages
+     * @return true
+     */
+    public static function validate( $data, $rules, $messages = [] )
     {
         $Validator = Validator::make( $data, $rules, $messages );
 
         if( $Validator->fails() )
         {
-            self::fail( $Validator );
+            self::throwResponseException( $Validator );
         }
+
+        return true;
     }
 }
