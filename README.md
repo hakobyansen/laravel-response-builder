@@ -33,7 +33,7 @@ or
 ```
 
 ## Installation  
-`composer require codebot/response-builder:0.2.*`
+`composer require codebot/laravel-response-builder:0.2.*`
 
 **For Laravel 5.4 and versions below add `\RB\Core\RBServiceProvider::class` to providers in config/app.php file.**
 
