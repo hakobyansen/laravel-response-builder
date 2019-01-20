@@ -46,5 +46,11 @@
 ## 0.0.2 2018-09-12
 * Response class created.
 
+## 0.1.3 2018-09-19
+* Refactoring.
+* Documentation updated.
+
+## 0.1.4
+
 ## 0.0.1 2018-09-12
 * Initial commit.
