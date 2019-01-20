@@ -33,7 +33,7 @@ or
 ```
 
 ## Installation  
-`composer require codebot/response-builder:0.2.*`
+`composer require codebot/laravel-response-builder:0.2.*`
 
 **For Laravel 5.4 and versions below add `\RB\Core\RBServiceProvider::class` to providers in config/app.php file.**
 
@@ -100,7 +100,7 @@ HttpStatusCode::getCodeWithMessage( \RB\Core\HttpStatusCode::OK::CREATED ); // r
 
 Once you have vendor published, you should see `config/response_builder.php` file.
 
-**request_path** - Generated request classes will be store in specified directory.  
+**request_path** - Generated request classes will be stored in specified directory.  
 
 **request_namespace** - Namespace for generated request class.  
 
