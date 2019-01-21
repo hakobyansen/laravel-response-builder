@@ -52,7 +52,7 @@ If you are using Laravel's Validator class, you can use `RB\Core\RBValidator` to
 ```php
 $validator = new Validator( $data, $rules ); // assuming you have a $validator instance
 
-\RB\Core\RBValidator::validate( $Validator ); // throws HttpResponseException or returns boolean true
+\RB\Core\RBValidator::validate( $validator ); // throws HttpResponseException or returns boolean true
  
 ```
 
