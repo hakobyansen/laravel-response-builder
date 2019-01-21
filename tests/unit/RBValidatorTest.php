@@ -16,8 +16,6 @@ class RBValidatorTest extends TestCase
     public function getEnvironmentSetUp($app)
     {
         parent::getEnvironmentSetUp($app);
-
-        $app['config']->set('response_builder.messages.failed_validation', 'Validation failed.');
     }
 
     public function testValidate()
