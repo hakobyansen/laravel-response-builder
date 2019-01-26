@@ -1,5 +1,8 @@
 # Versions
 
+## 0.2.1 2019-01-26
+* Using Validator contract in RBValidator.
+
 ## 0.2.0 2019-01-20
 * RBValidator class created.
 * Status automatically set to "true" whenever status code is 2XX.

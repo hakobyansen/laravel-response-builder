@@ -2,7 +2,7 @@
 
 namespace RB\Core;
 
-use Illuminate\Validation\Validator;
+use Illuminate\Contracts\Validation\Validator;
 
 class RBValidator
 {
