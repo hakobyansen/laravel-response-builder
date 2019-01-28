@@ -45,18 +45,19 @@ class Response implements IResponse
 	public function setStatusCode(int $StatusCode): Response
 	{
 		$this->_StatusCode = $StatusCode;
-		
+
 		// If status code is 2XX then status should be true
-		
-        if( (string)$StatusCode{0} === '2' )
-        {
-            $this->setStatus( true );
-        }
-        else
-        {
-            $this->setStatus( false );
-        }
-        
+
+		$StatusCode = (string)$StatusCode;
+
+		if ($StatusCode{0} === '2')
+		{
+			$this->setStatus(true);
+		} else
+			{
+			$this->setStatus(false);
+		}
+
 		return $this;
 	}
 
@@ -135,6 +136,6 @@ class Response implements IResponse
 	 */
 	public function getResponse()
 	{
-		return response()->json( $this->getArray(), $this->getStatusCode() );
+		return response()->json($this->getArray(), $this->getStatusCode());
 	}
 }
