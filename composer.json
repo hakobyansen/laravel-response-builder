@@ -17,16 +17,16 @@
     },
     "autoload": {
         "psr-4": {
-            "RB\\": "src/"
+            "Rb\\": "src/"
         },
         "psr-0": {
-            "RB\\": "src/"
+            "Rb\\": "src/"
         }
     },
     "extra" : {
         "laravel": {
             "providers": [
-                "RB\\Core\\RBServiceProvider"
+              "RbServiceProvider"
             ]
         }
     }

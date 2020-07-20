@@ -1,8 +1,8 @@
 <?php
 
-namespace RB\Core;
+namespace Rb\Core;
 
-use RB\Core\Contracts\IResponse;
+use Rb\Core\Contracts\IResponse;
 
 class Response implements IResponse
 {

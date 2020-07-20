@@ -1,6 +1,6 @@
 <?php
 
-namespace RB\Core\Contracts;
+namespace Rb\Core\Contracts;
 
 interface IResponse
 {

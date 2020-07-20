@@ -4,9 +4,9 @@ namespace Tests\Unit;
 
 use Illuminate\Support\Facades\Validator;
 use Orchestra\Testbench\TestCase;
-use RB\Core\RBValidator;
+use Rb\Core\RbValidator;
 
-class RBValidatorTest extends TestCase
+class RbValidatorTest extends TestCase
 {
     protected function setUp()
     {
@@ -34,6 +34,6 @@ class RBValidatorTest extends TestCase
 
         $validator = Validator::make( $data, $rules );
 
-        $this->assertTrue(  RBValidator::validate( $validator ) );
+        $this->assertTrue(  RbValidator::validate( $validator ) );
     }
 }

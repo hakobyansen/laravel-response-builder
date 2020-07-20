@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\RB;
+namespace App\Http\Requests\Rb;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
-use RB\Core\ValidatorTrait;
+use Rb\Core\ValidatorTrait;
 
-class RBRequest extends FormRequest
+class RbRequest extends FormRequest
 {
     use ValidatorTrait;
 

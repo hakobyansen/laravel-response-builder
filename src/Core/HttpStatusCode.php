@@ -1,6 +1,6 @@
 <?php
 
-namespace RB\Core;
+namespace Rb\Core;
 
 class HttpStatusCode
 {

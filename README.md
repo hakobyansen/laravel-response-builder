@@ -35,34 +35,34 @@ or
 ## Installation  
 `composer require codebot/laravel-response-builder:0.2.*`
 
-**For Laravel 5.4 and versions below add `\RB\Core\RBServiceProvider::class` to providers in config/app.php file.**
+**For Laravel 5.4 and versions below add `\Rb\Core\RbServiceProvider::class` to providers in config/app.php file.**
 
 Next run `php artisan vendor:publish --tag=laravel-response-builder` command in your console.
 
 ## Requests
 
-Once you published vendor, you should see `App\Http\Requests\RB\RBRequest class`. This will be base class for
+Once you published vendor, you should see `App\Http\Requests\Rb\RbRequest class`. This will be base class for
 laravel-response-builder's requests.  
-To generate a request that extends RBRequest, do:
+To generate a request that extends RbRequest, do:
   
 `php artisan make:rbrequest YourNewRequest` 
 
-If you are using Laravel's Validator class, you can use `RB\Core\RBValidator` to standardize the structure of failed response. 
+If you are using Laravel's Validator class, you can use `Rb\Core\RbValidator` to standardize the structure of failed response. 
 
 ```php
 $validator = new Validator( $data, $rules ); // assuming you have a $validator instance
 
-\RB\Core\RBValidator::validate( $validator ); // throws HttpResponseException or returns boolean true
+\Rb\Core\RbValidator::validate( $validator ); // throws HttpResponseException or returns boolean true
  
 ```
 
-RBValidator::validate() method checks if validation fails and throws an Illuminate\Http\Exceptions\HttpResponseException with the standardized json response structure.
+RbValidator::validate() method checks if the validation fails and throws Illuminate\Http\Exceptions\HttpResponseException with the standardized json response structure.
 
 ### Usage  
 ```php
-$response = new \RB\Core\Response();
+$response = new \Rb\Core\Response();
 
-$response->setStatusCode( \RB\Core\HttpStatusCode::OK ); // required. If code is 2XX then Response::status field will be "true", otherwise "false"
+$response->setStatusCode( \Rb\Core\HttpStatusCode::OK ); // required. If code is 2XX then Response::status field will be "true", otherwise "false"
 
 $response->setMessage( 'Some inspiring message.' ); // null will be returned if no message set
 
@@ -77,9 +77,9 @@ $response->getResponse(); // will return a json response using Laravel's respons
 
 All setters are fluent, so example above could be written like:
 ```php
-$response = new \RB\Core\Response();
+$response = new \Rb\Core\Response();
 
-$response->setStatusCode( \RB\Core\HttpStatusCode::OK )
+$response->setStatusCode( \Rb\Core\HttpStatusCode::OK )
     ->setMessage( 'Some inspiring message.' ); 
     // ...
 ```
@@ -87,13 +87,13 @@ $response->setStatusCode( \RB\Core\HttpStatusCode::OK )
 Package contains HttpStatusCode class with http status codes defined.
 
 ```php
-use \RB\Core\HttpStatusCode;
+use \Rb\Core\HttpStatusCode;
 
 HttpStatusCode::OK; // returns status code 200 (integer)
 
-HttpStatusCode::getMessageByCode( \RB\Core\HttpStatusCode::OK::NOT_FOUND ); // returns string "Not Found"
+HttpStatusCode::getMessageByCode( \Rb\Core\HttpStatusCode::NOT_FOUND ); // returns string "Not Found"
 
-HttpStatusCode::getCodeWithMessage( \RB\Core\HttpStatusCode::OK::CREATED ); // returns string - code and message, e.g. "201 Created"
+HttpStatusCode::getCodeWithMessage( \Rb\Core\HttpStatusCode::CREATED ); // returns string - code and message, e.g. "201 Created"
 ```
 
 ## Configuration

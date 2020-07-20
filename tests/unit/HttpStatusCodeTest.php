@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use RB\Core\HttpStatusCode;
+use Rb\Core\HttpStatusCode;
 
 class HttpStatusCodeTest extends TestCase
 {

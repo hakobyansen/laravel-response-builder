@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use RB\Core\Response;
+use Rb\Core\Response;
 
 class ResponseTest extends TestCase
 {
