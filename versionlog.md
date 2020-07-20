@@ -1,7 +1,8 @@
 # Versions
 
 ## 0.3.0
-* Refactoring
+* Refactoring.
+* Facade\Response class implemented.
 
 ## 0.2.2 2019-01-29
 * Bug fix related to setStatus method when status code is 2XX
