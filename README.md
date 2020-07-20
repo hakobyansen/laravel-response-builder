@@ -96,6 +96,16 @@ HttpStatusCode::getMessageByCode( \Rb\Core\HttpStatusCode::NOT_FOUND ); // retur
 HttpStatusCode::getCodeWithMessage( \Rb\Core\HttpStatusCode::CREATED ); // returns string - code and message, e.g. "201 Created"
 ```
 
+#### The Facade
+
+The package contains a facade class in case if you don't want to interact with all of these setters.
+
+```php
+\Rb\Facade\Response::success(array $data, string $message = '', int $statusCode = 200);
+
+\Rb\Facade\Response::error(array $errors, string $message = '', int $statusCode = 422);
+```
+
 ## Configuration
 
 Once you have vendor published, you should see `config/response_builder.php` file.
