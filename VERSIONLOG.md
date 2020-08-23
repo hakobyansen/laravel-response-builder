@@ -1,6 +1,9 @@
 # Versions
 
-## 0.3.1
+## 0.3.2
+
+## 0.3.1 2020-08-23
+* Fixed the providers in composer.json.
 
 ## 0.3.0 2020-08-23
 * Refactoring.
