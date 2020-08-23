@@ -1,23 +1,23 @@
 <?php
 
-namespace RB\Core;
+namespace Rb\Core;
 
 use Illuminate\Support\ServiceProvider;
-use RB\Commands\MakeRBRequest;
+use Rb\Commands\MakeRbRequest;
 
-class RBServiceProvider extends ServiceProvider
+class RbServiceProvider extends ServiceProvider
 {
 	public function boot()
 	{
-		// Publish configuration and RBRequest files
+		// Publish configuration and RbRequest files
 		$this->publishes([
 			__DIR__.'/../Configs/config.php' => app()->basePath() . '/config/response_builder.php',
-			__DIR__ . '/../Requests/RBRequest.php' => app()->basePath() . '/app/Http/Requests/RB/RBRequest.php',
+			__DIR__ . '/../Requests/RbRequest.php' => app()->basePath() . '/app/Http/Requests/RB/RbRequest.php',
 		], 'laravel-response-builder');
 
 		// Register commands
 		$this->commands([
-			MakeRBRequest::class
+			MakeRbRequest::class
 		]);
 	}
 

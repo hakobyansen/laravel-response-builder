@@ -1,10 +1,10 @@
 <?php
 
-namespace RB\Core;
+namespace Rb\Core;
 
 use Illuminate\Contracts\Validation\Validator;
 
-class RBValidator
+class RbValidator
 {
     use ValidatorTrait;
 

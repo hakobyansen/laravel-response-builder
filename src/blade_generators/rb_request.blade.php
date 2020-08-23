@@ -2,7 +2,7 @@
 <?= "\n\n" ?>
 namespace {{ $request_namespace }};
 
-use {{ $request_namespace }}\RBRequest;
+use {{ $request_namespace }}\RbRequest;
 
 class {{ $request_name }} extends RBRequest
 {

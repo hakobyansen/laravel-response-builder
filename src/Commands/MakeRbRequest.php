@@ -1,11 +1,11 @@
 <?php
 
-namespace RB\Commands;
+namespace Rb\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Config;
 
-class MakeRBRequest extends Command
+class MakeRbRequest extends Command
 {
 	/**
 	* The name and signature of the console command.
@@ -19,7 +19,7 @@ class MakeRBRequest extends Command
 	 *
 	 * @var string
 	 */
-	protected $description = 'Make request class that extends from RBRequest.';
+	protected $description = 'Make request class that extends from RbRequest.';
 
 	/**
 	 * Create a new command instance.

@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use RB\Core\Response;
+use Rb\Core\Response;
 
 class ResponseTest extends TestCase
 {
@@ -38,6 +38,21 @@ class ResponseTest extends TestCase
 		$this->_Response->setStatusCode($actualCode);
 
 		$this->assertEquals($this->_Response->getStatusCode(), $actualCode);
+	}
+
+	public function testStatusDependedOnStatusCode()
+	{
+		$code =  201;
+
+		$this->_Response->setStatusCode( $code );
+
+		$this->assertTrue( $this->_Response->getStatus() );
+
+		$code =  404;
+
+		$this->_Response->setStatusCode( $code );
+
+		$this->assertFalse( $this->_Response->getStatus() );
 	}
 
 	public function testMessage()

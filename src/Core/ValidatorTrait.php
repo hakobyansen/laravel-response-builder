@@ -1,6 +1,6 @@
 <?php
 
-namespace RB\Core;
+namespace Rb\Core;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
