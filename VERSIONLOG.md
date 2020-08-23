@@ -1,5 +1,7 @@
 # Versions
 
+## 0.3.1
+
 ## 0.3.0 2020-08-23
 * Refactoring.
 * Facade\Response class implemented.
