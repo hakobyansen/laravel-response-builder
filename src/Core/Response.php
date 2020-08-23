@@ -50,11 +50,12 @@ class Response implements IResponse
 
 		$StatusCode = (string)$StatusCode;
 
-		if ($StatusCode{0} === '2')
+		if ($StatusCode[0] === '2')
 		{
 			$this->setStatus(true);
-		} else
-			{
+		}
+		else
+		{
 			$this->setStatus(false);
 		}
 
