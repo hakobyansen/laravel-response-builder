@@ -8,7 +8,7 @@ use Rb\Core\RbValidator;
 
 class RbValidatorTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
     }
@@ -18,6 +18,9 @@ class RbValidatorTest extends TestCase
         parent::getEnvironmentSetUp($app);
     }
 
+	/**
+	 * @covers RbValidator::validate
+	 */
     public function testValidate()
     {
         $data = [

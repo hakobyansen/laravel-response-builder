@@ -9,6 +9,9 @@ use Rb\Facade\Response;
 
 class ResponseFacadeTest extends TestCase
 {
+	/**
+	 * @covers \Rb\Facade\Response::success()
+	 */
 	public function testSuccess()
 	{
 		$mockData = [
@@ -37,13 +40,16 @@ class ResponseFacadeTest extends TestCase
 		$this->assertTrue($Response->getData()->status);
 		$this->assertEquals(HttpStatusCode::OK, $Response->getStatusCode());
 		$this->assertEquals('List of users.', $Response->getData()->message);
-		$this->assertNull($Response->getData()->errors);
+		$this->assertEmpty($Response->getData()->errors);
 
 		$Response = Response::success($mockData, 'Created List of users.', HttpStatusCode::CREATED);
 
 		$this->assertEquals(HttpStatusCode::CREATED, $Response->getStatusCode());
 	}
 
+	/**
+	 * @covers \Rb\Facade\Response::error
+	 */
 	public function testError()
 	{
 		$mockData = [
@@ -61,7 +67,6 @@ class ResponseFacadeTest extends TestCase
 		$this->assertFalse($Response->getData()->status);
 		$this->assertEquals(HttpStatusCode::UNPROCESSABLE_ENTITY, $Response->getStatusCode());
 		$this->assertEquals('Invalid input.', $Response->getData()->message);
-		$this->assertNull($Response->getData()->data);
-
+		$this->assertEmpty($Response->getData()->data);
 	}
 }
