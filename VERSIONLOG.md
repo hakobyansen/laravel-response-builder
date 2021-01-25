@@ -1,6 +1,6 @@
 # Versions
 
-## 1.0.5
+## 1.0.5 2021-01-25
 * Documentation updated.
 
 ## 1.0.4 2021-01-25
