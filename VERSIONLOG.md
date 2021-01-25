@@ -1,5 +1,8 @@
 # Versions
 
+## 1.0.1 2021-01-25
+* `$data` and `$errors` parameters are now optional in the `Rb\Facade\Response` facade.
+
 ## 1.0.0 2021-01-25
 * PHP 8 is the minimum required version.
 
