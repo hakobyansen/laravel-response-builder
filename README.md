@@ -1,19 +1,17 @@
 ## About
 Package `codebot/laravel-response-builder` is a simple package for Laravel framework to standardize the structure of JSON responses.
 
-You will find this package helpful if you need your responses too look like this:
+You will find this package helpful if you need your responses to look like this:
 
 ```json
 {
   "status": true,
   "message": "You got that!",
   "data" : {
-    "user": {
-      "name": "James Joesph Bulger",
-      "profession": "criminal"
-    }
+    "name": "James Joesph Bulger", 
+    "profession": "criminal"
   },
-  "errors": null
+  "errors": []
 }
 ```
 
@@ -23,7 +21,7 @@ or
 {
   "status": false,
   "message": "Something went wrong...",
-  "data" : null,
+  "data" : [],
   "errors": {
     "email": [
       "The email field is required."
@@ -50,25 +48,30 @@ To generate a request that extends RbRequest, do:
 If you are using Laravel's Validator class, you can use `Rb\Core\RbValidator` to standardize the structure of failed response. 
 
 ```php
-$validator = new Validator( $data, $rules ); // assuming you have a $validator instance
+use \Rb\Core\RbValidator;
+use Illuminate\Support\Facades\Validator;
 
-\Rb\Core\RbValidator::validate( $validator ); // throws HttpResponseException or returns boolean true
- 
+$validator = new Validator($data, $rules); // assuming you have a $validator instance
+
+RbValidator::validate($validator); // throws HttpResponseException or returns boolean true 
 ```
 
 RbValidator::validate() method checks if the validation fails and throws Illuminate\Http\Exceptions\HttpResponseException with the standardized json response structure.
 
 ### Usage  
 ```php
-$response = new \Rb\Core\Response();
+use \Rb\Core\Response;
+use \Rb\Core\HttpStatusCode;
 
-$response->setStatusCode( \Rb\Core\HttpStatusCode::OK ); // required. If code is 2XX then Response::status field will be "true", otherwise "false"
+$response = new Response();
 
-$response->setMessage( 'Some inspiring message.' ); // null will be returned if no message set
+$response->setStatusCode(HttpStatusCode::OK); // required. If code is 2XX then Response::status field will be "true", otherwise "false"
 
-$response->setData( $data ); // null will be returned if no data set
+$response->setMessage('Some inspiring message.'); // null will be returned if no message set
 
-$response->setErrors( $errors ); // null will be returned if no error set
+$response->setData($data); // null will be returned if no data set
+
+$response->setErrors($errors); // null will be returned if no error set
 
 $response->getArray(); // will return an array of data set
 
@@ -77,10 +80,13 @@ $response->getResponse(); // will return a json response using Laravel's respons
 
 All setters are fluent, so example above could be written like:
 ```php
-$response = new \Rb\Core\Response();
+use \Rb\Core\Response;
+use \Rb\Core\HttpStatusCode;
 
-$response->setStatusCode( \Rb\Core\HttpStatusCode::OK )
-    ->setMessage( 'Some inspiring message.' ); 
+$response = new Response();
+
+$response->setStatusCode(HttpStatusCode::OK)
+    ->setMessage('Some inspiring message.'); 
     // ...
 ```
 
@@ -91,9 +97,9 @@ use \Rb\Core\HttpStatusCode;
 
 HttpStatusCode::OK; // returns status code 200 (integer)
 
-HttpStatusCode::getMessageByCode( \Rb\Core\HttpStatusCode::NOT_FOUND ); // returns string "Not Found"
+HttpStatusCode::getMessageByCode(HttpStatusCode::NOT_FOUND); // returns string "Not Found"
 
-HttpStatusCode::getCodeWithMessage( \Rb\Core\HttpStatusCode::CREATED ); // returns string - code and message, e.g. "201 Created"
+HttpStatusCode::getCodeWithMessage(HttpStatusCode::CREATED); // returns string - code and message, e.g. "201 Created"
 ```
 
 #### The Facade
@@ -101,10 +107,25 @@ HttpStatusCode::getCodeWithMessage( \Rb\Core\HttpStatusCode::CREATED ); // retur
 The package contains a facade class in case if you don't want to interact with all of these setters.
 
 ```php
-\Rb\Facade\Response::success(array $data, string $message = '', int $statusCode = 200);
+use \Rb\Facade\Response;
+use \Rb\Core\HttpStatusCode;
 
-\Rb\Facade\Response::error(array $errors, string $message = '', int $statusCode = 422);
+return Response::success(
+   data: $data,
+   message: 'Created List of users.'
+);
+
+return Response::error(
+   errors: $errors,
+   message: 'Invalid input.',
+   statusCode: HttpStatusCode::UNPROCESSABLE_ENTITY
+);
+
+// Without $data (the $errors parameter is also optional)
+return Response::success(message: 'User deleted.');
 ```
+
+`$data` and `$errors` variables are arrays and are optional.
 
 ## Configuration
 

@@ -15,7 +15,7 @@ class RbRequest extends FormRequest
 	 *
 	 * @return bool
 	 */
-	public function authorize()
+	public function authorize(): bool
 	{
 		return true;
 	}
@@ -25,16 +25,16 @@ class RbRequest extends FormRequest
 	 *
 	 * @return array
 	 */
-	public function rules()
+	public function rules(): array
 	{
 		return [];
 	}
 
 	/**
-	 * @param Validator $Validator
+	 * @param Validator $validator
 	 */
-	public function failedValidation( Validator $Validator )
+	public function failedValidation( Validator $validator )
 	{
-		self::throwResponseException( $Validator );
+		self::throwResponseException( $validator );
 	}
 }

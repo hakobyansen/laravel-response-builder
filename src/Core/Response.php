@@ -2,15 +2,35 @@
 
 namespace Rb\Core;
 
+use Illuminate\Http\JsonResponse;
 use Rb\Core\Contracts\IResponse;
 
 class Response implements IResponse
 {
-	private $_Status;
-	private $_StatusCode;
-	private $_Message;
-	private $_Errors;
-	private $_Data;
+	/**
+	 * @var bool
+	 */
+	private bool $_Status;
+
+	/**
+	 * @var int
+	 */
+	private int $_StatusCode;
+
+	/**
+	 * @var string|null
+	 */
+	private ?string $_Message = '';
+
+	/**
+	 * @var array
+	 */
+	private array $_Errors = [];
+
+	/**
+	 * @var array
+	 */
+	private array $_Data = [];
 
 	/**
 	 * @return bool
@@ -21,12 +41,12 @@ class Response implements IResponse
 	}
 
 	/**
-	 * @param bool $Status
+	 * @param bool $status
 	 * @return $this
 	 */
-	public function setStatus(bool $Status): Response
+	public function setStatus(bool $status): Response
 	{
-		$this->_Status = $Status;
+		$this->_Status = $status;
 		return $this;
 	}
 
@@ -39,18 +59,18 @@ class Response implements IResponse
 	}
 
 	/**
-	 * @param int $StatusCode
+	 * @param int $statusCode
 	 * @return $this
 	 */
-	public function setStatusCode(int $StatusCode): Response
+	public function setStatusCode(int $statusCode): Response
 	{
-		$this->_StatusCode = $StatusCode;
+		$this->_StatusCode = $statusCode;
 
 		// If status code is 2XX then status should be true
 
-		$StatusCode = (string)$StatusCode;
+		$statusCode = (string)$statusCode;
 
-		if ($StatusCode[0] === '2')
+		if ($statusCode[0] === '2')
 		{
 			$this->setStatus(true);
 		}
@@ -71,48 +91,48 @@ class Response implements IResponse
 	}
 
 	/**
-	 * @param mixed $Message
+	 * @param mixed $message
 	 * @return $this
 	 */
-	public function setMessage(string $Message): Response
+	public function setMessage(string $message): Response
 	{
-		$this->_Message = $Message;
+		$this->_Message = $message;
 		return $this;
 	}
 
 	/**
-	 * @return mixed
+	 * @return array
 	 */
-	public function getErrors()
+	public function getErrors(): array
 	{
 		return $this->_Errors;
 	}
 
 	/**
-	 * @param mixed $Errors
+	 * @param  array  $errors
 	 * @return $this
 	 */
-	public function setErrors($Errors): Response
+	public function setErrors(array $errors): Response
 	{
-		$this->_Errors = $Errors;
+		$this->_Errors = $errors;
 		return $this;
 	}
 
 	/**
-	 * @return mixed
+	 * @return array
 	 */
-	public function getData()
+	public function getData(): array
 	{
 		return $this->_Data;
 	}
 
 	/**
-	 * @param mixed $Data
+	 * @param  array  $data
 	 * @return $this
 	 */
-	public function setData($Data): Response
+	public function setData(array $data): Response
 	{
-		$this->_Data = $Data;
+		$this->_Data = $data;
 
 		return $this;
 	}
@@ -131,11 +151,11 @@ class Response implements IResponse
 	}
 
 	/**
-	 * This method uses laravel's response() helper
+	 * This method uses Laravel response() helper
 	 *
-	 * @return mixed
+	 * @return JsonResponse
 	 */
-	public function getResponse()
+	public function getResponse(): JsonResponse
 	{
 		return response()->json($this->getArray(), $this->getStatusCode());
 	}

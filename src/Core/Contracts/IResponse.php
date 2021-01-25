@@ -2,22 +2,67 @@
 
 namespace Rb\Core\Contracts;
 
+use Illuminate\Http\JsonResponse;
+
 interface IResponse
 {
-	public function getResponse();
+	/**
+	 * @return JsonResponse
+	 */
+	public function getResponse(): JsonResponse;
 
-	public function setData( $data );
-	public function getData();
+	/**
+	 * @param  array  $data
+	 * @return $this
+	 */
+	public function setData(array $data): self;
 
-	public function setStatus( bool $status );
-	public function getStatus();
+	/**
+	 * @return array
+	 */
+	public function getData(): array;
 
-	public function setStatusCode( int $statusCode );
-	public function getStatusCode();
+	/**
+	 * @param  bool  $status
+	 * @return $this
+	 */
+	public function setStatus(bool $status): self;
 
-	public function setMessage( string $message );
+	/**
+	 * @return bool
+	 */
+	public function getStatus(): bool;
+
+	/**
+	 * @param  int  $statusCode
+	 * @return $this
+	 */
+	public function setStatusCode(int $statusCode): self;
+
+	/**
+	 * @return int
+	 */
+	public function getStatusCode(): int;
+
+	/**
+	 * @param  string  $message
+	 * @return $this
+	 */
+	public function setMessage(string $message): self;
+
+	/**
+	 * @return mixed
+	 */
 	public function getMessage();
 
-	public function setErrors( $errors );
-	public function getErrors();
+	/**
+	 * @param  array  $errors
+	 * @return $this
+	 */
+	public function setErrors(array $errors): self;
+
+	/**
+	 * @return array
+	 */
+	public function getErrors(): array;
 }

@@ -7,9 +7,9 @@ use Rb\Core\Response;
 
 class ResponseTest extends TestCase
 {
-	private $_Response;
+	private Response $_Response;
 
-	public function setUp()
+	public function setUp(): void
 	{
 		$this->_Response = new Response();
 
@@ -17,65 +17,83 @@ class ResponseTest extends TestCase
 			->setStatusCode(200);
 	}
 
-	public function testStatusTrue()
+	/**
+	 * @covers Response::setStatus()
+	 * @covers Response::getStatus()
+	 */
+	public function testStatus()
 	{
 		$this->_Response->setStatus(true);
-
 		$this->assertTrue($this->_Response->getStatus());
-	}
 
-	public function testStatusFalse()
-	{
 		$this->_Response->setStatus(false);
-
 		$this->assertFalse($this->_Response->getStatus());
 	}
 
+	/**
+	 * @covers Response::setStatusCode()
+	 * @covers Response::getStatusCode()
+	 */
 	public function testStatusCode()
 	{
 		$actualCode = 404;
 
 		$this->_Response->setStatusCode($actualCode);
 
-		$this->assertEquals($this->_Response->getStatusCode(), $actualCode);
+		$this->assertEquals($actualCode, $this->_Response->getStatusCode());
 	}
 
+	/**
+	 * @covers Response::setStatusCode()
+	 * @covers Response::getStatusCode()
+	 */
 	public function testStatusDependedOnStatusCode()
 	{
-		$code =  201;
+		$code = 201;
 
-		$this->_Response->setStatusCode( $code );
+		$this->_Response->setStatusCode($code);
 
-		$this->assertTrue( $this->_Response->getStatus() );
+		$this->assertTrue($this->_Response->getStatus());
 
-		$code =  404;
+		$code = 404;
 
-		$this->_Response->setStatusCode( $code );
+		$this->_Response->setStatusCode($code);
 
-		$this->assertFalse( $this->_Response->getStatus() );
+		$this->assertFalse($this->_Response->getStatus());
 	}
 
+	/**
+	 * @covers Response::setMessage()
+	 * @covers Response::getMessage()
+	 */
 	public function testMessage()
 	{
-		$actualMessage = 'Some inspiring message.';
+		$message = 'Some inspiring message.';
 
-		$this->_Response->setMessage($actualMessage);
+		$this->_Response->setMessage($message);
 
-		$this->assertEquals($this->_Response->getMessage(), $actualMessage);
+		$this->assertEquals($message, $this->_Response->getMessage());
 	}
 
+	/**
+	 * @covers Response::setErrors()
+	 * @covers Response::getErrors()
+	 */
 	public function testErrors()
 	{
-		$actualErrors = [
+		$errors = [
 			'name' => ['Name field is required.', 'Name must have minimum length 2.'],
 			'age' => ['Age field is required.', 'Age can not be less than 1']
 		];
 
-		$this->_Response->setErrors($actualErrors);
+		$this->_Response->setErrors($errors);
 
-		$this->assertEquals($actualErrors, $this->_Response->getErrors());
+		$this->assertEquals($errors, $this->_Response->getErrors());
 	}
 
+	/**
+	 * @covers Response::getArray()
+	 */
 	public function testGetArray()
 	{
 		$status = true;
@@ -95,12 +113,15 @@ class ResponseTest extends TestCase
 			'status' => $status,
 			'message' => $message,
 			'data' => $data,
-			'errors' => null
+			'errors' => []
 		];
 
 		$this->assertEquals($expectedArray, $this->_Response->getArray());
 	}
 
+	/**
+	 * @covers Response::getArray()
+	 */
 	public function testArrayContainsStatus()
 	{
 		$requiredKey = 'status';
@@ -113,6 +134,9 @@ class ResponseTest extends TestCase
 		$this->assertTrue($hasKey);
 	}
 
+	/**
+	 * @covers Response::getArray()
+	 */
 	public function testArrayContainsMessage()
 	{
 		$requiredKey = 'message';
@@ -125,6 +149,9 @@ class ResponseTest extends TestCase
 		$this->assertTrue($hasKey);
 	}
 
+	/**
+	 * @covers Response::getArray()
+	 */
 	public function testArrayContainsData()
 	{
 		$requiredKey = 'data';
@@ -137,6 +164,9 @@ class ResponseTest extends TestCase
 		$this->assertTrue($hasKey);
 	}
 
+	/**
+	 * @covers Response::getArray()
+	 */
 	public function testArrayContainsErrors()
 	{
 		$requiredKey = 'errors';

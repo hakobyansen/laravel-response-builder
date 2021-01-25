@@ -2,17 +2,18 @@
 
 namespace Rb\Facade;
 
+use Illuminate\Http\JsonResponse;
 use Rb\Core\HttpStatusCode;
 
 class Response
 {
 	/**
-	 * @param array $data
-	 * @param string $message
-	 * @param int $statusCode
-	 * @return mixed
+	 * @param  array  $data
+	 * @param  string  $message
+	 * @param  int  $statusCode
+	 * @return JsonResponse
 	 */
-	public static function success(array $data, string $message = '', int $statusCode = HttpStatusCode::OK)
+	public static function success(array $data = [], string $message = '', int $statusCode = HttpStatusCode::OK): JsonResponse
 	{
 		$Response = new \Rb\Core\Response();
 
@@ -25,14 +26,12 @@ class Response
 	}
 
 	/**
-	 * @param array $errors
-	 * @param string $message
-	 * @param int $statusCode
-	 * @return mixed
-	 *
-	 * @todo does it make sense to set unprocessable entity to be the default status code?
+	 * @param  array  $errors
+	 * @param  string  $message
+	 * @param  int  $statusCode
+	 * @return JsonResponse
 	 */
-	public static function error(array $errors, string $message = '', int $statusCode = HttpStatusCode::UNPROCESSABLE_ENTITY)
+	public static function error(array $errors = [], string $message = '', int $statusCode = HttpStatusCode::UNPROCESSABLE_ENTITY): JsonResponse
 	{
 		$Response = new \Rb\Core\Response();
 
