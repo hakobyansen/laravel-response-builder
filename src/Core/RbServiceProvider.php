@@ -12,7 +12,7 @@ class RbServiceProvider extends ServiceProvider
 		// Publish configuration and RbRequest files
 		$this->publishes([
 			__DIR__.'/../Configs/config.php' => app()->basePath() . '/config/response_builder.php',
-			__DIR__ . '/../Requests/RbRequest.php' => app()->basePath() . '/app/Http/Requests/RB/RbRequest.php',
+			__DIR__ . '/../Requests/RbRequest.php' => config('response_builder.request_path') . '/RbRequest.php',
 		], 'laravel-response-builder');
 
 		// Register commands
