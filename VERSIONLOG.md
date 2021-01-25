@@ -1,6 +1,7 @@
 # Versions
 
-## 0.3.2
+## 1.0
+* PHP 8 is the minimum required version.
 
 ## 0.3.1 2020-08-23
 * Fixed the providers in composer.json.
