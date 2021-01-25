@@ -1,5 +1,7 @@
 # Versions
 
+## 1.0.1
+
 ## 1.0.0 2021-01-25
 * PHP 8 is the minimum required version.
 
