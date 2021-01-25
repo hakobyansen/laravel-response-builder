@@ -108,13 +108,24 @@ The package contains a facade class in case if you don't want to interact with a
 
 ```php
 use \Rb\Facade\Response;
+use \Rb\Core\HttpStatusCode;
 
-Response::success($data, $message = 'Created List of users.', $statusCode = 200);
+return Response::success(
+   data: $data,
+   message: 'Created List of users.'
+);
 
-Response::error($errors, $message = 'Invalid input.', $statusCode = 422);
+return Response::error(
+   errors: $errors,
+   message: 'Invalid input.',
+   statusCode: HttpStatusCode::UNPROCESSABLE_ENTITY
+);
+
+// Without $data (the $errors parameter is also optional)
+return Response::success(message: 'User deleted.');
 ```
 
-`$data` and `$errors` variables are arrays.
+`$data` and `$errors` variables are arrays and are optional.
 
 ## Configuration
 
