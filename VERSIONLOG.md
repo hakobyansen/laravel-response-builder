@@ -1,6 +1,8 @@
 # Versions
 
 ## 1.0.2
+* Return type added to the `authorize()` method.
+* Changed the default `request_path` and `request_namespace` config values.
 
 ## 1.0.1 2021-01-25
 * `$data` and `$errors` parameters are now optional in the `Rb\Facade\Response` facade.
