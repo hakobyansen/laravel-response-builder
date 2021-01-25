@@ -4,6 +4,7 @@ return [
 
 	/**
 	 * Generated request classes will be stored in specified "request_path" directory.
+	 * Must be wrapped in base_path() helper.
 	 */
 
 	'request_path' => base_path( 'app/Http/Requests/ResponseBuilder' ),

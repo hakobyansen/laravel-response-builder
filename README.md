@@ -31,19 +31,27 @@ or
 ```
 
 ## Installation  
-`composer require codebot/laravel-response-builder:0.2.*`
+```
+composer require codebot/laravel-response-builder:^1
+```
 
 **For Laravel 5.4 and versions below add `\Rb\Core\RbServiceProvider::class` to providers in config/app.php file.**
 
-Next run `php artisan vendor:publish --tag=laravel-response-builder` command in your console.
+Next run the command below in your console:
+
+```
+php artisan vendor:publish --tag=laravel-response-builder
+```
 
 ## Requests
 
 Once you published vendor, you should see `App\Http\Requests\Rb\RbRequest class`. This will be base class for
 laravel-response-builder's requests.  
-To generate a request that extends RbRequest, do:
+To generate a request that extends RbRequest, run:
   
-`php artisan make:rbrequest YourNewRequest` 
+```
+php artisan make:rbrequest YourNewRequest
+``` 
 
 If you are using Laravel's Validator class, you can use `Rb\Core\RbValidator` to standardize the structure of failed response. 
 

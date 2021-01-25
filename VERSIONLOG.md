@@ -1,6 +1,7 @@
 # Versions
 
 ## 1.0.5
+* Documentation updated.
 
 ## 1.0.4 2021-01-25
 * Updated the `RbServiceProvider` to publish `RbRequest` in same directory as specified in configs.
