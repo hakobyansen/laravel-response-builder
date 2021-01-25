@@ -143,8 +143,8 @@ Once you have vendor published, you should see `config/response_builder.php` fil
 
 ## Fields
 
-`status` - boolean ( Not Nullable )  
-`status code` - integer ( Not Nullable )  
-`message` - string ( Nullable )  
-`data` - mixed ( Nullable )  
-`errors` - mixed ( Nullable )  
+`status` - boolean (Not Nullable)  
+`status_code` - integer (Not Nullable)  
+`message` - string (Nullable)  
+`data` - array (Not Nullable, can be empty)  
+`errors` - array (Not Nullable, can be empty)

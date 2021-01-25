@@ -1,5 +1,8 @@
 # Versions
 
+## 1.0.3 2021-01-25
+* Documentation updated.
+
 ## 1.0.2 2021-01-25
 * Return type added to the `authorize()` method.
 * Changed the default `request_path` and `request_namespace` config values.
