@@ -11,7 +11,7 @@ class {{ $request_name }} extends RBRequest
 	 *
 	 * @return bool
 	 */
-	public function authorize()
+	public function authorize(): bool
 	{
 		return {{ $is_authorize }};
 	}
