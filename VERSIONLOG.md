@@ -1,5 +1,7 @@
 # Versions
 
+## 1.0.7
+
 ## 1.0.6 2021-06-27
 * Added default error message for the `Rb\Facade\Response::error` method.
 
