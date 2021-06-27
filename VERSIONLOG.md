@@ -1,5 +1,11 @@
 # Versions
 
+## 1.0.6 2021-06-27
+* Added default error message for the `Rb\Facade\Response::error` method.
+
+## 1.0.5 2021-01-25
+* Documentation updated.
+
 ## 1.0.4 2021-01-25
 * Updated the `RbServiceProvider` to publish `RbRequest` in same directory as specified in configs.
 
