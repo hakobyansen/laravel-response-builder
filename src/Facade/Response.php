@@ -31,7 +31,7 @@ class Response
 	 * @param  int  $statusCode
 	 * @return JsonResponse
 	 */
-	public static function error(array $errors = [], string $message = '', int $statusCode = HttpStatusCode::UNPROCESSABLE_ENTITY): JsonResponse
+	public static function error(array $errors = [], string $message = 'Something went wrong...', int $statusCode = HttpStatusCode::UNPROCESSABLE_ENTITY): JsonResponse
 	{
 		$Response = new \Rb\Core\Response();
 
