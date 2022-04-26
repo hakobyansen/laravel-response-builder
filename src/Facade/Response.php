@@ -4,6 +4,7 @@ namespace Rb\Facade;
 
 use Illuminate\Http\JsonResponse;
 use Rb\Core\HttpStatusCode;
+use Rb\Core\Response as CoreResponse;
 
 class Response
 {
@@ -15,7 +16,7 @@ class Response
 	 */
 	public static function success(array $data = [], string $message = '', int $statusCode = HttpStatusCode::OK): JsonResponse
 	{
-		$Response = new \Rb\Core\Response();
+		$Response = new CoreResponse();
 
 		$Response->setStatus(true)
 			->setMessage($message)
@@ -26,18 +27,24 @@ class Response
 	}
 
 	/**
-	 * @param  array  $errors
-	 * @param  string  $message
-	 * @param  int  $statusCode
+	 * @param array $data
+	 * @param array $errors
+	 * @param string $message
+	 * @param int $statusCode
 	 * @return JsonResponse
 	 */
-	public static function error(array $errors = [], string $message = 'Something went wrong...', int $statusCode = HttpStatusCode::UNPROCESSABLE_ENTITY): JsonResponse
+	public static function error(
+		array $data = [],
+		array $errors = [],
+		string $message = 'Something went wrong...',
+		int $statusCode = HttpStatusCode::INTERNAL_SERVER_ERROR): JsonResponse
 	{
-		$Response = new \Rb\Core\Response();
+		$Response = new CoreResponse();
 
 		$Response->setStatus(true)
 			->setMessage($message)
 			->setStatusCode($statusCode)
+			->setData($data)
 			->setErrors($errors);
 
 		return $Response->getResponse();
