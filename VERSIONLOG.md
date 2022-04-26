@@ -1,5 +1,7 @@
 # Versions
 
+## 1.1.1
+
 ## 1.1.0 2022-04-26
 * Updated  `Rb\Facade\Response::error` method - added `$data` parameter.
 
