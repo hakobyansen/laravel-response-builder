@@ -4,7 +4,7 @@ namespace {{ $request_namespace }};
 
 use {{ $request_namespace }}\RbRequest;
 
-class {{ $request_name }} extends RBRequest
+class {{ $request_name }} extends RbRequest
 {
 	/**
 	 * Determine if the user is authorized to make this request.
