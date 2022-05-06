@@ -1,5 +1,7 @@
 # Versions
 
+## 1.1.2
+
 ## 1.1.1 2022-05-06
 * Rename class in `rb_requet` blade generator.
 
