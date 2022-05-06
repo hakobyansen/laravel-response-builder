@@ -1,5 +1,8 @@
 # Versions
 
+## 1.1.1 2022-05-06
+* Rename class in `rb_requet` blade generator.
+
 ## 1.1.0 2022-04-26
 * Updated  `Rb\Facade\Response::error` method - added `$data` parameter.
 
