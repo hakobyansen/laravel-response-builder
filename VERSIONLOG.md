@@ -1,5 +1,8 @@
 # Versions
 
+## 1.1.2 2023-03-02
+* Added HTTP status code 429 Too Many Requests
+
 ## 1.1.1 2022-05-06
 * Rename class in `rb_requet` blade generator.
 
