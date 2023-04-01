@@ -1,5 +1,9 @@
 # Versions
 
+## 1.1.3 2023-04-01
+
+* Refactored types of Core\Response::$_Data field
+
 ## 1.1.2 2023-03-02
 * Added HTTP status code 429 Too Many Requests
 

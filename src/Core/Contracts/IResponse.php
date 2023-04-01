@@ -12,15 +12,15 @@ interface IResponse
 	public function getResponse(): JsonResponse;
 
 	/**
-	 * @param  array  $data
+	 * @param array|object|null $data
 	 * @return $this
 	 */
-	public function setData(array $data): self;
+	public function setData(array|object|null $data): self;
 
 	/**
-	 * @return array
+	 * @return array|object|null
 	 */
-	public function getData(): array;
+	public function getData(): array|object|null;
 
 	/**
 	 * @param  bool  $status
