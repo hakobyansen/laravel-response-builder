@@ -9,12 +9,12 @@ use Rb\Core\Response as CoreResponse;
 class Response
 {
 	/**
-	 * @param  array  $data
-	 * @param  string  $message
-	 * @param  int  $statusCode
+	 * @param array|object|null $data
+	 * @param string $message
+	 * @param int $statusCode
 	 * @return JsonResponse
 	 */
-	public static function success(array $data = [], string $message = '', int $statusCode = HttpStatusCode::OK): JsonResponse
+	public static function success(array|object|null $data = null, string $message = '', int $statusCode = HttpStatusCode::OK): JsonResponse
 	{
 		$Response = new CoreResponse();
 
@@ -34,7 +34,7 @@ class Response
 	 * @return JsonResponse
 	 */
 	public static function error(
-		array $data = [],
+		array|object|null $data = null,
 		array $errors = [],
 		string $message = 'Something went wrong...',
 		int $statusCode = HttpStatusCode::INTERNAL_SERVER_ERROR): JsonResponse
