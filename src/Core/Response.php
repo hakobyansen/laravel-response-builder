@@ -28,9 +28,9 @@ class Response implements IResponse
 	private array $_Errors = [];
 
 	/**
-	 * @var array
+	 * @var array|object|null
 	 */
-	private array $_Data = [];
+	private array|object|null $_Data;
 
 	/**
 	 * @return bool
@@ -121,16 +121,16 @@ class Response implements IResponse
 	/**
 	 * @return array
 	 */
-	public function getData(): array
+	public function getData(): array|object|null
 	{
 		return $this->_Data;
 	}
 
 	/**
-	 * @param  array  $data
+	 * @param array|object|null $data
 	 * @return $this
 	 */
-	public function setData(array $data): Response
+	public function setData(array|object|null $data): Response
 	{
 		$this->_Data = $data;
 
