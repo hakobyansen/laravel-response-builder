@@ -2,6 +2,10 @@
 
 ## 1.2.0
 
+## 1.1.4 2023-04-01
+
+* Refactored Response facade
+
 ## 1.1.3 2023-04-01
 * Refactored types of Core\Response::$_Data field
 
