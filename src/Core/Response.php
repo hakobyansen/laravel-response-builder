@@ -30,7 +30,7 @@ class Response implements IResponse
 	/**
 	 * @var array|object|null
 	 */
-	private array|object|null $_Data;
+	private array|object|null $_Data = null;
 
 	/**
 	 * @return bool
@@ -119,7 +119,7 @@ class Response implements IResponse
 	}
 
 	/**
-	 * @return array
+	 * @return array|object|null
 	 */
 	public function getData(): array|object|null
 	{
