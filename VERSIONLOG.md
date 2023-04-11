@@ -1,5 +1,9 @@
 # Versions
 
+## 1.1.5 2023-04-01
+
+* Refactored Response facade
+
 ## 1.1.4 2023-04-01
 
 * Refactored Response facade

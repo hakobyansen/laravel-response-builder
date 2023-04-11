@@ -14,7 +14,11 @@ class Response
 	 * @param int $statusCode
 	 * @return JsonResponse
 	 */
-	public static function success(array|object|null $data = null, string $message = '', int $statusCode = HttpStatusCode::OK): JsonResponse
+	public static function success(
+		array|object|null $data = null,
+		string $message = '',
+		int $statusCode = HttpStatusCode::OK
+	): JsonResponse
 	{
 		$Response = new CoreResponse();
 
@@ -27,7 +31,7 @@ class Response
 	}
 
 	/**
-	 * @param array $data
+	 * @param array|object|null $data
 	 * @param array $errors
 	 * @param string $message
 	 * @param int $statusCode
