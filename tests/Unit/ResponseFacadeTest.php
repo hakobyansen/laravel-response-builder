@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use Illuminate\Http\JsonResponse;
 use Orchestra\Testbench\TestCase;
+use Rb\Core\ErrorCode;
 use Rb\Core\HttpStatusCode;
 use Rb\Facade\Response;
 
@@ -61,12 +62,20 @@ class ResponseFacadeTest extends TestCase
 			]
 		];
 
-		$Response = Response::error($mockData, 'Invalid input.', HttpStatusCode::UNPROCESSABLE_ENTITY);
+		$Response = Response::error(
+			message: 'Invalid input.',
+			errors: $mockData,
+			statusCode: HttpStatusCode::UNPROCESSABLE_ENTITY,
+			errorCode: new ErrorCode('validation_error', 'invalid_input'),
+		);
+
 		$this->assertEquals($mockData['first_name'][0], $Response->getData()->errors->first_name[0]);
 		$this->assertEquals($mockData['email'][0], $Response->getData()->errors->email[0]);
 		$this->assertFalse($Response->getData()->status);
 		$this->assertEquals(HttpStatusCode::UNPROCESSABLE_ENTITY, $Response->getStatusCode());
 		$this->assertEquals('Invalid input.', $Response->getData()->message);
 		$this->assertEmpty($Response->getData()->data);
+		$this->assertEquals('validation_error', $Response->getData()->error_code->type);
+		$this->assertEquals('invalid_input', $Response->getData()->error_code->subtype);
 	}
 }

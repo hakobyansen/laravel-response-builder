@@ -3,6 +3,7 @@
 namespace Rb\Facade;
 
 use Illuminate\Http\JsonResponse;
+use Rb\Core\ErrorCode;
 use Rb\Core\HttpStatusCode;
 use Rb\Core\Response as CoreResponse;
 
@@ -30,18 +31,21 @@ class Response
 		return $Response->getResponse();
 	}
 
-	/**
-	 * @param array|object|null $data
-	 * @param array $errors
-	 * @param string $message
-	 * @param int $statusCode
-	 * @return JsonResponse
-	 */
+    /**
+     * @param array|object|null $data
+     * @param string $message
+     * @param array|null $errors
+     * @param int $statusCode
+     * @param ErrorCode|null $errorCode
+     * @return JsonResponse
+     */
 	public static function error(
 		array|object|null $data = null,
-		array $errors = [],
 		string $message = 'Something went wrong...',
-		int $statusCode = HttpStatusCode::INTERNAL_SERVER_ERROR): JsonResponse
+        ?array $errors = null,
+        int $statusCode = HttpStatusCode::INTERNAL_SERVER_ERROR,
+        ?ErrorCode $errorCode = null,
+    ): JsonResponse
 	{
 		$Response = new CoreResponse();
 
@@ -49,7 +53,8 @@ class Response
 			->setMessage($message)
 			->setStatusCode($statusCode)
 			->setData($data)
-			->setErrors($errors);
+			->setErrors($errors)
+            ->setErrorCode($errorCode);
 
 		return $Response->getResponse();
 	}

@@ -75,27 +75,32 @@ $response = new Response();
 
 $response->setStatusCode(HttpStatusCode::OK); // required. If code is 2XX then Response::status field will be "true", otherwise "false"
 
-$response->setMessage('Some inspiring message.'); // null will be returned if no message set
+$response->setMessage('Some inspiring message.');
 
-$response->setData($data); // null will be returned if no data set
+$response->setData($data);
 
-$response->setErrors($errors); // null will be returned if no error set
+$response->getArray(); 
 
-$response->getArray(); // will return an array of data set
-
-$response->getResponse(); // will return a json response using Laravel's response() helper 
+$response->getResponse(); // will return json response 
 ```
 
-All setters are fluent, so example above could be written like:
+All setters are fluent. See example of fluent setters usage for some error response below.
+
 ```php
 use \Rb\Core\Response;
 use \Rb\Core\HttpStatusCode;
 
 $response = new Response();
 
-$response->setStatusCode(HttpStatusCode::OK)
-    ->setMessage('Some inspiring message.'); 
-    // ...
+$response->setStatusCode(HttpStatusCode::UNPROCESSABLE_ENTITY)
+    ->setMessage('Some error message.')
+    ->setErrorCode($errors)
+    ->setErrorCode(
+        new \Rb\Core\ErrorCode(
+            type: 'validation_error', 
+            subType: 'missing_required_field'
+        )
+    );
 ```
 
 Package contains HttpStatusCode class with http status codes defined.

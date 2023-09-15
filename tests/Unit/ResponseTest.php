@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Rb\Core\ErrorCode;
 use Rb\Core\Response;
 
 class ResponseTest extends TestCase
@@ -86,9 +87,17 @@ class ResponseTest extends TestCase
 			'age' => ['Age field is required.', 'Age can not be less than 1']
 		];
 
-		$this->_Response->setErrors($errors);
+		$errorCode = new ErrorCode(
+			type: 'validation_error',
+			subType: 'required_field_missing'
+		);
+
+		$this->_Response
+			->setErrors($errors)
+			->setErrorCode($errorCode);
 
 		$this->assertEquals($errors, $this->_Response->getErrors());
+		$this->assertEquals($errorCode, $this->_Response->getErrorCode());
 	}
 
 	/**
@@ -97,12 +106,10 @@ class ResponseTest extends TestCase
 	public function testGetArray()
 	{
 		$status = true;
-		$message = 'Awesome response.';
+		$message = 'Successful response.';
 		$data = [
-			'user' => [
-				'name' => 'John Smith',
-				'age' => 28
-			]
+			'name' => 'John Smith',
+			'age' => 28,
 		];
 
 		$this->_Response->setStatus($status)
@@ -113,7 +120,8 @@ class ResponseTest extends TestCase
 			'status' => $status,
 			'message' => $message,
 			'data' => $data,
-			'errors' => []
+			'errors' => null,
+			'error_code' => null,
 		];
 
 		$this->assertEquals($expectedArray, $this->_Response->getArray());
@@ -125,11 +133,8 @@ class ResponseTest extends TestCase
 	public function testArrayContainsStatus()
 	{
 		$requiredKey = 'status';
-		$hasKey = false;
 
-		if (array_key_exists($requiredKey, $this->_Response->getArray())) {
-			$hasKey = true;
-		}
+		$hasKey = array_key_exists($requiredKey, $this->_Response->getArray());
 
 		$this->assertTrue($hasKey);
 	}
@@ -140,11 +145,8 @@ class ResponseTest extends TestCase
 	public function testArrayContainsMessage()
 	{
 		$requiredKey = 'message';
-		$hasKey = false;
 
-		if (array_key_exists($requiredKey, $this->_Response->getArray())) {
-			$hasKey = true;
-		}
+		$hasKey = array_key_exists($requiredKey, $this->_Response->getArray());
 
 		$this->assertTrue($hasKey);
 	}
@@ -155,11 +157,8 @@ class ResponseTest extends TestCase
 	public function testArrayContainsData()
 	{
 		$requiredKey = 'data';
-		$hasKey = false;
 
-		if (array_key_exists($requiredKey, $this->_Response->getArray())) {
-			$hasKey = true;
-		}
+		$hasKey = array_key_exists($requiredKey, $this->_Response->getArray());
 
 		$this->assertTrue($hasKey);
 	}
@@ -170,11 +169,8 @@ class ResponseTest extends TestCase
 	public function testArrayContainsErrors()
 	{
 		$requiredKey = 'errors';
-		$hasKey = false;
 
-		if (array_key_exists($requiredKey, $this->_Response->getArray())) {
-			$hasKey = true;
-		}
+		$hasKey = array_key_exists($requiredKey, $this->_Response->getArray());
 
 		$this->assertTrue($hasKey);
 	}

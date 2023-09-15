@@ -23,9 +23,14 @@ class Response implements IResponse
 	private ?string $_Message = '';
 
 	/**
-	 * @var array
+	 * @var array|null
 	 */
-	private array $_Errors = [];
+	private ?array $_Errors = null;
+
+	/**
+	 * @var ErrorCode|null
+	 */
+	private ?ErrorCode $_ErrorCode = null;
 
 	/**
 	 * @var array|object|null
@@ -101,20 +106,38 @@ class Response implements IResponse
 	}
 
 	/**
-	 * @return array
+	 * @return array|null
 	 */
-	public function getErrors(): array
+	public function getErrors(): ?array
 	{
 		return $this->_Errors;
 	}
 
 	/**
-	 * @param  array  $errors
+	 * @param array|null $errors
 	 * @return $this
 	 */
-	public function setErrors(array $errors): Response
+	public function setErrors(?array $errors): Response
 	{
 		$this->_Errors = $errors;
+		return $this;
+	}
+
+	/**
+	 * @return ErrorCode|null
+	 */
+	public function getErrorCode(): ?ErrorCode
+	{
+		return $this->_ErrorCode;
+	}
+
+	/**
+	 * @param ErrorCode|null $ErrorCode
+	 * @return $this
+	 */
+	public function setErrorCode(?ErrorCode $ErrorCode): Response
+	{
+		$this->_ErrorCode = $ErrorCode;
 		return $this;
 	}
 
@@ -146,7 +169,11 @@ class Response implements IResponse
 			'status' => $this->getStatus(),
 			'message' => $this->getMessage(),
 			'data' => $this->getData(),
-			'errors' => $this->getErrors()
+			'errors' => $this->getErrors(),
+			'error_code' => $this->getErrorCode() ? [
+				'type' => $this->getErrorCode()->getType(),
+				'subtype' => $this->getErrorCode()->getSubType(),
+			] : null,
 		];
 	}
 

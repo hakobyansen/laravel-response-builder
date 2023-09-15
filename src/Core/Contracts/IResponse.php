@@ -53,16 +53,16 @@ interface IResponse
 	/**
 	 * @return mixed
 	 */
-	public function getMessage();
+	public function getMessage(): mixed;
 
 	/**
-	 * @param  array  $errors
-	 * @return $this
+	 * @param array|null $errors
+	 * @return self
 	 */
-	public function setErrors(array $errors): self;
+	public function setErrors(?array $errors): self;
 
 	/**
-	 * @return array
+	 * @return array|null
 	 */
-	public function getErrors(): array;
+	public function getErrors(): ?array;
 }
